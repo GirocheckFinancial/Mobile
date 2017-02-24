@@ -1,0 +1,102 @@
+/* variables */
+
+//$base-color: rgb(220,220,220);
+$background-color: rgb(220,220,220);
+$red: #ffffff;
+//$red: #ff2e3a;
+$red-light:  #ffffff;
+//$red-light: lighten($red, 10%);
+$green: #1468A2;
+$green-light: lighten($green, 5%);
+$gray-dark: #58585B;
+$gray-light: lighten($gray-dark, 5%);
+$gray-light2: lighten($gray-dark, 35%);
+$gray-light3: lighten($gray-dark, 50%);
+$blue-list-item-pressed: -webkit-gradient(linear,left top,left bottom,from($gray-light2),to($gray-light3));
+
+$box-radius: 0.2em;
+$include-highlights:false;
+//$base-color: $green;
+
+/* fontface mobileapp */
+@font-face {
+    font-family: 'mobileapp';
+    src: url('../fonts/mobileapp/mobileapp.eot');
+    src: local('?'), url('../fonts/mobileapp/mobileapp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+@include icon-font('mobileapp', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', truetype, 'pictos/pictos-web.svg',svg));
+
+@include icon('settings', 'y', 'Pictos');
+@include icon('user', 'U', 'Pictos');
+
+
+/* icons - $name, $character, $font-family */
+@include icon('right-arrow1', '\e601', 'mobileapp');
+@include icon('right-arrow2', '\e603', 'mobileapp'); 
+@include icon('back-arrow1', '\e600', 'mobileapp');
+@include icon('back-arrow2', '\e602', 'mobileapp');
+@include icon('check', '\e604', 'mobileapp');
+@include icon('clear', '\e605', 'mobileapp'); 
+
+//------------  fontello    http://fontello.com/
+@include icon-font('Fontello', inline-font-files('fontello/fontello.woff', woff, 'fontello/fontello.ttf', truetype, 'fontello/fontello.svg',svg));
+@include icon('cancel-circled', '\E800', 'Fontello');  //para clear los fields
+@include icon('male', '\E805', 'Fontello');  //hombrecito
+@include icon('users', '\E804', 'Fontello');  //users
+@include icon('info-circled', '\E802', 'Fontello');  //info-circled
+@include icon('attention-circled', '\E80F', 'Fontello');  //attention-circled
+@include icon('trash-empty', '\E806', 'Fontello');  //trash-empty
+@include icon('search', '\E803', 'Fontello');  //search
+@include icon('thumbs-up', '\E810', 'Fontello');  //thumbs-up
+@include icon('thumbs-down', '\E811', 'Fontello');  //thumbs-down
+
+@include icon('down-open', '\E809', 'Fontello');  //arrow strong
+@include icon('up-open', '\E80A', 'Fontello');  //arrow strong
+@include icon('left-open', '\E808', 'Fontello');  //arrow strong
+@include icon('right-open', '\E807', 'Fontello');  //arrow strong
+
+@include icon('angle-down', '\E80E', 'Fontello');  //arrow clear
+@include icon('angle-up', '\E80D', 'Fontello');  //arrow clear
+@include icon('angle-left', '\E80B', 'Fontello');  //arrow clear
+@include icon('angle-right', '\E80C', 'Fontello');  //arrow clear
+
+/* Generals -----------------------------------------------------------------------*/
+*{
+    -webkit-font-smoothing: antialiased;
+}
+.x-layout-card-item, .x-form .x-scroll-container {
+    background: $background-color;
+}
+
+.info-separate-line{
+    background-color: $green;
+    margin-bottom: 10px;
+    //margin-top: -10px;
+    height: 25px;    
+}
+
+.hiddenElement{
+    display: none !important;
+    position: absolute;
+}
+.mobileapp-version{
+    margin: 15px 20px;
+    text-align: end;
+    color: white;
+    font-size: 0.75em;
+}
+
+//Issue: In Android sencha was forcing the color to black for the inputs
+.x-android .x-input-el {
+    -webkit-text-fill-color: initial;
+}
+
+//@import 'components';
+//@import 'formsAndFields';
+//@import 'views';

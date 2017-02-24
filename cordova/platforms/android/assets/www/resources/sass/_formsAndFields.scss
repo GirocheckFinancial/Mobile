@@ -1,0 +1,372 @@
+/* Fields ------------------------------------------------------------------------*/
+.x-toggle-field{
+    .x-toggle {
+        position : absolute;
+        right : 1em;
+        margin-top : -.45em;
+        height: 30px;
+        width: 60px;
+
+        &.x-toggle-on{
+            background-color: $green;
+            background-image: none;
+            .x-toggle-inner{
+                ::after{
+                    top: 0;
+                    left: 0.60em;
+                    width: 1.60em;
+                    height: 1.60em;
+                }
+            }
+        }
+        &.x-toggle-off{
+            .x-toggle-inner{
+                ::after{
+                    top: 0;
+                    left: 0;
+                    width: 1.60em;
+                    height: 1.60em;
+                }
+            }
+        }
+    }
+}
+
+.x-field-search{
+    // margin: 8px 20px 0 20px;
+    border-radius: $box-radius;
+    border: solid 1px gray !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-bottom-color: #b0b0b0 !important;
+    padding: 5px;
+
+    .x-field-input  {
+        &::before{
+            top: .45em;
+        }
+
+        input, .x-form-field{
+            margin-left: 0;
+            padding-left: 30px;
+            border-radius: 1em;
+            color: $green;            
+            font-size: 0.8em;
+            -webkit-text-fill-color: initial;
+        }
+    }
+} 
+
+.mobileapp-form-panel{
+    margin: 0;
+    .transaction-details-field{
+        line-height: 35px;
+        input {            
+            line-height: 35px;
+        }  
+    }
+    &.x-form-fieldset, .x-form-fieldset{
+        margin: 0;
+        .x-form-fieldset-inner{
+            border-radius: $box-radius !important;
+            border: solid 1px $gray-dark !important;
+        }
+    }
+
+    .x-field{
+        height: 60px; 
+        .x-form-label{
+            background-color: white;
+            color: $gray-dark;
+            width:200px!important;
+            span{
+                font-size: .8em;
+            }
+
+            .item {
+                .title {
+                    color: $gray-dark;
+                    font-size: 1.15em;
+                  //  font-weight: bold;
+                }
+
+                .subtitle {
+                    color: $gray-light;
+                    font-size: 0.9em;
+                    font-weight: 300;
+                    margin-top: 0.1em;
+                }
+            }
+
+            .textitem {
+                margin-top:9px;
+                .title {
+                    color: $gray-dark;
+                    font-size: 1.15em;
+                  //  font-weight: bold;
+                }
+
+                .subtitle {
+                    color: $gray-light;
+                    font-size: 0.9em;
+                    font-weight: 300;
+                    margin-top: 0.1em;
+                }
+            }
+
+            .shortMarginTopTextitem {
+                margin-top:4px;
+                .title {
+                    color: $gray-dark;
+                    font-size: 1.15em;
+                  //  font-weight: bold;
+                }
+
+                .subtitle {
+                    color: $gray-light;
+                    font-size: 0.9em;
+                    font-weight: 300;
+                    margin-top: 0.1em;
+                }
+            }
+        }
+        .x-component-outer{
+            margin-top: 8px;
+            .x-field-input{
+                //margin-top: 8px;
+                input{
+                    color: $green;
+                    -webkit-text-fill-color: initial;
+                    font-size: 0.8em;
+                    text-align: right;
+
+                    &[readonly="true"]{
+                        padding-right: 10px;
+                    }
+                    &[name="expDate"]{
+                        padding-right: 40px !important;
+                    }
+                }
+            }
+        }
+        ::-webkit-input-placeholder {
+            color:  $gray-light2;
+            text-align: left;
+        }       
+
+        &.x-field-select{
+            input{
+                color: $green;                
+                font-size: 0.8em;
+                padding-right: 40px;
+
+                //text-align: right;
+                //Issue: Sencha was forcing the color to black for the selects(inputs)
+                -webkit-text-fill-color: initial;
+            }
+        }
+        &.x-field-checkbox{
+            .x-field-mask::after{
+                content: '\e908';
+                font-family: 'IcoMoon';
+            }
+            .x-input-el:checked + .x-field-mask::after{
+                color: $green;
+            } 
+        }
+
+        .x-clear-icon{
+            background: transparent !important;
+            margin-top: -11px;
+            font-size: 1.2em;
+            margin-right: -8px;
+            color: $gray-light3;
+            &:before{
+                font-family: "Fontello";
+                content: "\E800";
+            }
+        }
+
+        .x-field-input.x-item-disabled{
+            input{
+                background-color: white;
+            } 
+        }
+
+        &.invalidField{
+            .x-form-label{
+                .item {
+                    .title, .subtitle {
+                        color: $red;
+                    }
+                }
+            }
+            .x-field-input{
+                .x-input-el{
+                    color: $red;
+                } 
+            }
+            .x-clear-icon{
+                color: $red;
+            }
+        }
+
+        &.informationField .x-form-label{
+            border-radius: 0;
+
+            .info-right-arrow::before{
+                font-family: "mobileapp";
+                content: "\e601";
+                font-size: 1.4em;
+                float: right;
+                margin-top: -30px;
+                font-weight: bold;
+            }
+            &.info-right-arrow-pressing{
+                background: $blue-list-item-pressed;
+                color: white;
+                .item{
+                    .title, .subtitle{
+                        color: white;
+                    }
+                }
+
+            }
+        }
+
+        &.customerField{
+            .item{
+                .title{
+                    float: left;
+                    margin-right: 40px;
+                }
+                .value{
+                    color: $green;
+                    float: left;
+                }
+            }
+            .info-right-arrow::before{
+                margin-top: 0 !important;
+            }
+        }
+    }
+
+    .loginfield{
+        .x-form-label{
+             //span{
+                .textitem{
+                    margin-top:3px!important;
+                     .title {
+                        font-size: 1.18em!important;
+                    }
+                   
+                }
+          // }
+        }
+    }
+}
+
+.x-title{
+   font-weight: normal!important; 
+}
+
+/* Forms -----------------------------------------------------------------------*/
+
+
+
+/*.mobileapp-form-panel{
+    .x-form-fieldset-inner{
+        border-right: none;
+        border-left: none;
+    }
+    .x-field-input{
+        border:none;
+    }
+    .base-field {
+        height:60px;
+        .x-field-input{
+            padding-top: 0.6em;
+
+            input {
+                color: $black;
+                font-size: 1.2em;
+                padding-top: 0;
+                text-align: right;
+            }           
+        }
+    }  
+
+    .base-field.x-field-checkbox .x-component-outer{
+        font-size: 1.6em;
+        top: -6px;
+        right: -10px;
+    }
+
+    .x-scroll-container{
+        background-color: white;
+    }
+    .x-field{
+        margin-right: 1em;
+    }
+   
+    .transaction-details-field{
+        color: $gray-dark;
+        input {            
+            text-align: right;
+        }  
+    }
+    
+}
+
+
+.mobileapp-auth-formpanel{
+    .x-field{
+        padding-top: 8px;
+        right: 8px;
+    }
+
+    .mobileapp-auth-formpanel-html{
+        margin: 2em;
+        color: black;
+        text-align: center;
+    }
+}*/
+
+
+
+//--------  img btn -----------
+
+.btnMenu{
+ background: url('resources/images/readerOn.png') !important;
+ padding: 5px !important;
+ width: 40px;
+ height: 40px;
+ -webkit-mask-image: url('resources/images/readerOn.png') !important;
+ -webkit-mask-size: 30px 30px;
+ -webkit-mask-repeat: no-repeat;
+ -webkit-mask-origin: content;
+}
+
+.centered-label{
+   .x-form-label{
+     margin-top: 6px!important;
+   } 
+}
+
+
+textarea{
+  text-align: left!important;
+}
+
+.nomIcon{
+    margin-top:10px!important;
+}
+
+.nomIconLocked::before{
+                content: '\e901';
+                font-family: 'IcoMoon';
+            }
+
+.nomIconUnlocked::before{
+                content: '\e902';
+                font-family: 'IcoMoon';
+            }   

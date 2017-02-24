@@ -1,0 +1,178 @@
+/*Login -----------------------------------------------------*/
+.login{
+    background-color: white;
+
+    /*    .linesImage{
+            width: 100%;
+            height: 200px;
+            position: fixed;
+            left: 0px;
+            z-index: -1;
+        }*/
+    .mobileapp-form-panel{
+        .x-field{
+            height: 50px;
+            .x-component-outer{
+                margin-top: 5px;
+                input{
+                    text-align: left;
+                }
+            }
+            .x-form-label{
+                line-height: 23px;
+            }
+        }
+    }
+}
+/*Home ------------------------------------------------------------*/
+.home{
+    .mobileapp-form-panel{
+        .x-field{
+            height: 50px;
+            .x-component-outer{
+                margin-top: 5px;
+                &.x-field-select{
+                    .x-form-field{
+                        text-align: right;
+                    }           
+                }
+            }
+        }
+    }
+}
+
+/*Transaction -----------------------------------------------------*/
+.transaction{ 
+    .mobileapp-form-panel{
+        .x-field{
+            height: 50px;    
+            .x-component-outer{
+                margin-top: 5px;
+                .x-field-input{
+                    input[name="totalAmount"]{
+                        color:$gray-light;
+                    }
+                }
+            }
+
+            &.informationField .x-form-label{
+                .info-right-arrow::before{
+                    margin-top: -20px;
+                }
+            }
+        }
+    }
+
+    .customerInfo{
+        padding: 5px 0 5px 20px;
+        background-color: $background-color;
+        .customerInfoFirstLast{
+            color: $gray-dark;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .customerInfoContent{
+            color: $gray-light;
+            font-size: 0.7em;
+            padding-left: 20px;
+        }
+    }
+
+}
+
+//-------- BasePage
+
+.x-dock-body{
+    background-color:#FFF;//#F1F1F1;
+
+    .x-list-item-inner{
+        background-color:white;
+    }
+}
+
+.docked-button{
+    background-color:#FFF;//#F1F1F1;
+}
+
+.x-scroll-scroller-vertical{
+    background-color:#FFF;//#F1F1F1;
+}
+
+//------------------  MENU
+
+.x-menu-inner, .x-menu{
+    background-color:#1468A2!important;
+}
+
+.menu-button{
+    background-color: #1468A2;
+    border: 1px solid white;
+    border-radius: 0.2em;
+    color: white;
+    height: 50px;
+
+    .x-button-label{
+        font-weight:100!important;
+        margin-left:0px!important;
+    }
+
+    
+}
+
+.menu-button-arrow{
+    .x-button-label::after{
+                float:right;
+                margin-right:3px!important;
+                content: '\E80C';
+                font-family: 'Fontello';
+            }
+}
+
+.menu-button-top{
+    margin-top:30px!important;
+    margin-bottom:0px!important;
+    border-radius: 7px 7px 0px 0px!important;
+    -webkit-border-radius:7px 7px 0px 0px!important;
+    border-width:1px 1px 0px 1px;
+    }
+
+.menu-button-middle{
+    margin-bottom:0px!important;
+    border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+    border-width:1px 1px 0px 1px;
+    } 
+
+.menu-button-down{
+    border-radius: 0px 0px 7px 7px!important;
+    -webkit-border-radius: 0px 0px 7px 7px!important;
+    border-width:1px;
+    }  
+
+.menu-space{
+    background-color: #1468A2;
+    border-width:0px;
+}
+
+.mtop-30{
+  margin-top:30px!important;  
+}
+
+.menu-lebel{
+    background-color: #1468A2;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    color: white;
+
+    p{
+       font-weight:100!important;
+       font-size:16px;
+    }
+
+    a{
+        font-weight:100!important;
+        font-size:15px;
+        color:white;
+        text-decoration:none;
+    }
+}

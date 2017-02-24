@@ -1,0 +1,58 @@
+//Toogle Field ----------------
+
+.x-thumb, .x-thumb:hover{
+ border-radius:25px;
+ background-color:white;
+ border-color:$green;
+}
+
+.x-thumb .x-icon-el:before{
+  content:none;
+ }
+
+ //.activo .x-body-el .x-toggleslider .x-thumb-wrap-el{
+ //   background-color:#148c7e!important
+ //}
+
+ .x-on .x-thumb-wrap-el{
+     background-color: #58b45f!important;
+ }
+
+.x-thumb-wrap-el{
+    background-color: #C0C0C0;
+    border-radius: 25px;
+    border: 1px solid $green;
+}
+
+.x-slider .x-track-el, .x-slider .x-track-el .x-fill-el{ 
+    border:none;
+    height:0;
+}
+
+ 
+.x-toggleslider .x-fill-el{
+    width:0px;
+}
+
+// Forms ----------------
+
+  .loginfield{
+    .x-body-el{ 
+        .x-input{
+         border: none;
+        }
+    }
+  }
+
+
+.rememberme .x-label-el .x-label-text-el{
+    font-weight: 500!important;
+}
+
+
+//--- login fieldset
+
+//.loginfield .x-label-el .x-label-text-el
+.x-field .x-label-el{
+    font-weight: 500!important;
+}

@@ -1,0 +1,37 @@
+$base-color:#13643c;// dynamic(#13643c);
+$background-color:#13643c; //;
+$color:#13643c;
+$green: #13643c;
+ 
+
+$background-color: #ffffff;//rgb(220,220,220);
+$red: #ffffff; 
+$red-light:  #ffffff; 
+$green-light: lighten($green, 5%);
+$gray-dark: #ffffff;// #58585B;
+$gray-light: lighten($gray-dark, 5%);
+$gray-light2: lighten($gray-dark, 35%);
+$gray-light3: lighten($gray-dark, 50%);
+$blue-list-item-pressed: -webkit-gradient(linear,left top,left bottom,from($gray-light2),to($gray-light3));
+$box-radius: 0.2em;
+$include-highlights:false;
+  
+.x-toolbar-inner{
+   padding: 0.5em 0em;
+}
+
+  .bar-bottom{
+      background-color: #023159;
+     .x-button-icon{
+        color: white;
+        font-size: 1em;
+     //   padding-top: 4px;
+        background-color: #023159;
+        float: right;
+    }
+  }
+   
+  
+
+@import 'Fields';
+@import 'Components';
