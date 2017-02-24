@@ -24,12 +24,12 @@ Ext.define('GirocheckMobile.view.main.Main', {
             }
         },
         items: [
-            // {
-            //    xtype: 'mainNavView'
-            // }
             {
-                xtype: 'authTabPanel'
-            } 
+               xtype: 'mainNavView'
+            }
+            // {
+            //     xtype: 'authTabPanel'
+            // } 
            
         ]
     }

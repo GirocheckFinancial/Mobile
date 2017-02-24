@@ -12,12 +12,59 @@ Ext.define('GirocheckMobile.view.main.Home', {
     ],
     items: [
         {
-            html: 'home',
-            flex:1,
-            height:'25%',
-            style:{
-                'background-color':'#024d86'
-            }
+            flex: 1,
+            height: '22%',
+            layout: {
+                type: 'vbox',
+                pack: 'center',
+                align: 'center'
+            },
+            style: {
+                'background-color': '#024d86',
+                color: 'white'
+            },
+            items: [
+                {
+                    layout: {
+                        type: 'hbox',
+                        pack: 'center',
+                        align: 'center'
+                    },
+                    items: [
+                        {
+                            html: '$',
+                            style: {
+                                'font-size':'23px',
+                                'font-weight':'normal',
+                                'margin-right':'1px'
+                            }
+                        },
+                        {
+                            html: '9',
+                            style: {
+                                'font-size':'32px',
+                                'margin-top': '10px',
+                                'margin-right':'2px'
+                            }
+                        },
+                        {
+                            html: '38',
+                            style: {
+                                'font-size':'23px',
+                                'margin-top': '0px',
+                                'font-weight':'normal'
+                            }
+                        }
+                    ]
+                },
+                {
+                    html: 'Available Balance',
+                    style: {
+                        'margin-top': '10px',
+                        'font-size':'13px' 
+                    }
+                }
+            ]
         }
         // ,{
         //    xtype: 'mainTabPanel'

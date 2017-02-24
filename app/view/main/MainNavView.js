@@ -24,8 +24,9 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         autoDestroy: false,
 
         navigationBar: {
+            height:'40px',
             style: {
-                'background-color': '#023159'
+                'background-color': '#023159' 
             },
             items: [
                 {
