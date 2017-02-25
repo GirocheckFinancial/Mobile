@@ -104,11 +104,7 @@
 
 /* Buttons -----------------------------------------------------------------------*/
 .mobileapp-button{ 
-        background-image: -webkit-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
-        background-image: -moz-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
-        background-image: -o-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
-        background-image: -ms-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important; 
-
+        @extend .greenGradient;
             .x-button-label{
                 color:white;
                 font: normal 15px/ 18px Helvetica, sans-serif; 
@@ -125,8 +121,7 @@
         background-image: -moz-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
         background-image: -o-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
         background-image: -ms-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important; 
-
-  
+ 
             .x-button-label{
                 color:#efd013;
                 font: normal 15px/ 18px Helvetica, sans-serif;  
@@ -136,6 +131,37 @@
                 font-size: 1.2em; 
             }
 }
+
+.greenGradient{
+      background-image: -webkit-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -moz-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -o-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -ms-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important; 
+
+}
+
+//Toolbar
+.x-toolbar{
+    .x-body{
+        height:100%!important;
+        .x-toolbar-inner{
+            height:100%!important;
+                padding: 0!important;
+            .x-titlebar-right{
+                height:100%!important; 
+                margin-right: 0!important; 
+            }
+        }
+    }
+}
+
+.x-layout-box .x-layout-vbox-item.x-flexed > .x-body:not(.x-scroller), .x-layout-box .x-layout-vbox-item.x-flexed > .x-inner, .x-layout-box .x-layout-hbox-item.x-stretched > .x-body:not(.x-scroller), .x-layout-box .x-layout-hbox-item.x-stretched > .x-inner{
+    height:100%!important;
+}
+// .x-toolbar-innner, .x-titlebar-right{
+//     height:'100%'!important;
+// }
+
 
 
 // .mobileapp-button {

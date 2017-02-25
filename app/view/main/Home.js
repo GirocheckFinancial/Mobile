@@ -12,60 +12,76 @@ Ext.define('GirocheckMobile.view.main.Home', {
     ],
     items: [
         {
-            flex: 1,
+            layout: 'hbox',
             height: '22%',
-            layout: {
-                type: 'vbox',
-                pack: 'center',
-                align: 'center'
-            },
             style: {
                 'background-color': '#024d86',
                 color: 'white'
             },
             items: [
                 {
+                    width: '30px'
+                },
+                {
+                    flex: 1,
                     layout: {
-                        type: 'hbox',
+                        type: 'vbox',
                         pack: 'center',
                         align: 'center'
                     },
                     items: [
                         {
-                            html: '$',
+                            layout: {
+                                type: 'hbox',
+                                pack: 'center',
+                                align: 'center'
+                            },
                             style: {
-                                'font-size':'23px',
-                                'font-weight':'normal',
-                                'margin-right':'1px'
-                            }
+                                'margin-top': '20px'
+                            },
+                            items: [
+                                {
+                                    html: '$',
+                                    style: {
+                                        'font-size': '23px',
+                                        'font-weight': 'normal',
+                                        'margin-right': '1px'
+                                    }
+                                },
+                                {
+                                    html: '9',
+                                    style: {
+                                        'font-size': '32px',
+                                        'margin-top': '10px',
+                                        'margin-right': '2px'
+                                    }
+                                },
+                                {
+                                    html: '38',
+                                    style: {
+                                        'font-size': '23px',
+                                        'margin-top': '0px',
+                                        'font-weight': 'normal'
+                                    }
+                                }
+                            ]
                         },
                         {
-                            html: '9',
+                            html: 'Available Balance',
                             style: {
-                                'font-size':'32px',
                                 'margin-top': '10px',
-                                'margin-right':'2px'
-                            }
-                        },
-                        {
-                            html: '38',
-                            style: {
-                                'font-size':'23px',
-                                'margin-top': '0px',
-                                'font-weight':'normal'
+                                'font-size': '13px'
                             }
                         }
                     ]
                 },
                 {
-                    html: 'Available Balance',
-                    style: {
-                        'margin-top': '10px',
-                        'font-size':'13px' 
-                    }
+                    width: '30px',
+                    cls: 'greenGradient'
                 }
             ]
         }
+
         // ,{
         //    xtype: 'mainTabPanel'
         // }

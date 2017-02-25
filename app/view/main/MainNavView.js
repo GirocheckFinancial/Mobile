@@ -68,12 +68,16 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     {
                     xtype: 'button',
                     id: 'more-options',
-                    cls: 'bar-bottom',
+                    cls: 'bar-button-more',
                     iconCls: 'fa fa-ellipsis-v',
                     align: 'right',
+                    width: '30px',
                     style: {
-                        'background-color': '#023159',
-                        'padding-right': 0
+                      //  'background-color': '#023159',
+                        'background-color': '#078241',
+                        'padding': '0 0 0 10px',
+                        'height':'100%', 
+                        'border-radius': '0'
                     },
                     handler: function () {
                         var me = this;
