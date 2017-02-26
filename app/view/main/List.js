@@ -6,14 +6,14 @@ Ext.define('GirocheckMobile.view.main.List', {
     xtype: 'mainlist',
 
     requires: [
-        'GirocheckMobile.store.Personnel'
+  //      'GirocheckMobile.store.Personnel'
     ],
 
     title: 'Personnel',
 
-    store: {
-        type: 'personnel'
-    },
+    // store: {
+    //     type: 'personnel'
+    // },
 
     columns: [
         { text: 'Name',  dataIndex: 'name', width: 100 },

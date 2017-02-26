@@ -9,11 +9,14 @@ Ext.define('GirocheckMobile.view.main.Home', {
     extend: 'Ext.Container',
     xtype: 'home',
     requires: [
-    ],
+        'GirocheckMobile.view.main.TransactionListItem',
+        'GirocheckMobile.store.TxStore',
+        'GirocheckMobile.view.main.TxList'
+    ], 
     items: [
         {
             layout: 'hbox',
-            height: '22%',
+            height: '25%',
             style: {
                 'background-color': '#024d86',
                 color: 'white'
@@ -37,13 +40,13 @@ Ext.define('GirocheckMobile.view.main.Home', {
                                 align: 'center'
                             },
                             style: {
-                                'margin-top': '20px'
+                                'margin-top': '26px'
                             },
                             items: [
                                 {
                                     html: '$',
                                     style: {
-                                        'font-size': '23px',
+                                        'font-size': '25px',
                                         'font-weight': 'normal',
                                         'margin-right': '1px'
                                     }
@@ -51,7 +54,7 @@ Ext.define('GirocheckMobile.view.main.Home', {
                                 {
                                     html: '9',
                                     style: {
-                                        'font-size': '32px',
+                                        'font-size': '34px',
                                         'margin-top': '10px',
                                         'margin-right': '2px'
                                     }
@@ -59,7 +62,7 @@ Ext.define('GirocheckMobile.view.main.Home', {
                                 {
                                     html: '38',
                                     style: {
-                                        'font-size': '23px',
+                                        'font-size': '25px',
                                         'margin-top': '0px',
                                         'font-weight': 'normal'
                                     }
@@ -70,7 +73,7 @@ Ext.define('GirocheckMobile.view.main.Home', {
                             html: 'Available Balance',
                             style: {
                                 'margin-top': '10px',
-                                'font-size': '13px'
+                                'font-size': '15px'
                             }
                         }
                     ]
@@ -80,10 +83,32 @@ Ext.define('GirocheckMobile.view.main.Home', {
                     cls: 'greenGradient'
                 }
             ]
+        },
+        {
+            html:'COMPLETED TRANSACTIONS',
+             style:{
+                margin:'15px',
+                color:'grey',
+                'border-bottom':'1px solid #f0f0f0',
+                'font-size': '15px',
+                'padding-bottom':'10px'
+            }
+        },
+        {
+            itemId: 'txList',
+            // xtype: 'baselist',
+            xtype: 'txList',
+            store: Ext.create('GirocheckMobile.store.TxStore', {}),
+            flex: 1,
+            style:{
+                margin:'6px'
+            }
+            // plugins: [
+            //     {
+            //         xclass: 'Ext.plugin.ListPaging',
+            //         autoPaging: true
+            //     }
+            // ]
         }
-
-        // ,{
-        //    xtype: 'mainTabPanel'
-        // }
     ]
 });

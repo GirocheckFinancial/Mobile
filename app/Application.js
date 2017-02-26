@@ -10,7 +10,8 @@ Ext.define('GirocheckMobile.Application', {
 
     requires:[
         'GirocheckMobile.utils.Request',
-        'GirocheckMobile.utils.UUIDGenerator'
+        'GirocheckMobile.utils.UUIDGenerator',
+        'GirocheckMobile.util.Utils'
     ],
 
     stores: [

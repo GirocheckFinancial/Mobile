@@ -1,3 +1,41 @@
+//  list item ---------
+
+.itemDate{
+    font-size: 12px;
+    color: gray;
+    margin-top:6px;
+}
+
+.itemDesc{
+     font-size: 15px;
+     color:black;
+}
+
+.itemAmount{
+    width:'100%';
+    font-size: 16px;
+    padding-right: 2px;
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.itemAmountNegative{
+    @extend .itemAmount;
+    color:orange;
+}
+
+.itemAmountPossitive{
+    @extend .itemAmount;
+    color:#58b45f;
+}
+
+.x-list-paging{
+    display:none;
+}
+ 
+
 /* TitleBar & ToolBar ---------------------------------------------------------- */
 .mobileapp-titlebar{
    // background-color: white;
@@ -72,35 +110,35 @@
     } 
 }
 
-.x-tabbar{
-  //  background-image:  -webkit-gradient(linear,left top,left bottom,from(#2f2f2f),color-stop(.5,#141414),color-stop(.5,#000),to(#000));
-   // background-image: linear-gradient(to bottom,#2f2f2f 0%,#141414 50%,#000 50%,#000 100%);
-    height: 50px !important;
-    //padding: 1px 2px 2px 2px;
-    .x-button{
-        height: 45px;
-        margin: 0;
-        padding-top: 5px;
-        border-radius: 2px;
-    }
-    .x-button-label{
-        font-size: 0.72em;
-        color: white;
-    }
-    .x-button-icon {
-        color: white;
-    }
-    .x-tab{
+// .x-tabbar{
+//   //  background-image:  -webkit-gradient(linear,left top,left bottom,from(#2f2f2f),color-stop(.5,#141414),color-stop(.5,#000),to(#000));
+//    // background-image: linear-gradient(to bottom,#2f2f2f 0%,#141414 50%,#000 50%,#000 100%);
+//     height: 50px !important;
+//     //padding: 1px 2px 2px 2px;
+//     .x-button{
+//         height: 45px;
+//         margin: 0;
+//         padding-top: 5px;
+//         border-radius: 2px;
+//     }
+//     .x-button-label{
+//         font-size: 0.72em;
+//         color: white;
+//     }
+//     .x-button-icon {
+//         color: white;
+//     }
+//     .x-tab{
 
-        &.x-tab-active {
-            background: rgba(255, 255, 255, 0.15);
+//         &.x-tab-active {
+//             background: rgba(255, 255, 255, 0.15);
 
-            .x-button-icon::before{
-                color:white;
-            }
-        }
-    }
-}
+//             .x-button-icon::before{
+//                 color:white;
+//             }
+//         }
+//     }
+// }
 
 /* Buttons -----------------------------------------------------------------------*/
 .mobileapp-button{ 
@@ -158,28 +196,7 @@
 .x-layout-box .x-layout-vbox-item.x-flexed > .x-body:not(.x-scroller), .x-layout-box .x-layout-vbox-item.x-flexed > .x-inner, .x-layout-box .x-layout-hbox-item.x-stretched > .x-body:not(.x-scroller), .x-layout-box .x-layout-hbox-item.x-stretched > .x-inner{
     height:100%!important;
 }
-// .x-toolbar-innner, .x-titlebar-right{
-//     height:'100%'!important;
-// }
-
-
-
-// .mobileapp-button {
-//     background: $green;
-//     border-radius: 3px;// $box-radius;
-//     text-shadow: 0 1px 1px black;
-//     border: none;
-
-//     .x-button-label{
-//         color:white;
-//         font: normal 15px/ 18px Helvetica, sans-serif; 
-//     }
-//     .x-button-icon{
-//         color: white;
-//         font-size: 1em;
-//         padding-right: 4px;
-//     }
-// }
+ 
 .mobileapp-button.x-button-pressing {
     background: $green-light;
     .x-button-label{
