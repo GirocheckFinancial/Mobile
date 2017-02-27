@@ -5,6 +5,15 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         'GirocheckMobile.component.NavigationView',
         'GirocheckMobile.view.main.pages.Home'
     ],
+    initialize: function () {
+        this.callParent();
+
+        var me = this;
+
+        me.down('#searchButton').addListener({
+            tap: { fn: me.showPeriodPicker, scope: me }
+        });
+    },
     config: {
         defaultBackButtonText: '',
         titleLeft: true,
@@ -24,9 +33,9 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         autoDestroy: false,
 
         navigationBar: {
-            height:'40px',
+            height: '40px',
             style: {
-                'background-color': '#023159' 
+                'background-color': '#023159'
             },
             items: [
                 {
@@ -50,13 +59,13 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                 },
                 {
                     xtype: 'button',
-                    id: 'rightButton',
+                    id: 'searchButton',
                     cls: 'bar-bottom',
                     iconCls: 'pictos pictos-search',
                     align: 'right',
                     style: {
                         'background-color': '#023159',
-                        'margin-right':'10px'
+                        'margin-right': '10px'
                     },
                     handler: function () {
                         var me = this;
@@ -65,7 +74,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                         // }
                     }
                 },
-                    {
+                {
                     xtype: 'button',
                     id: 'more-options',
                     cls: 'bar-button-more',
@@ -73,10 +82,10 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     align: 'right',
                     width: '30px',
                     style: {
-                      //  'background-color': '#023159',
+                        //  'background-color': '#023159',
                         'background-color': '#078241',
                         'padding': '0 0 0 10px',
-                        'height':'100%', 
+                        'height': '100%',
                         'border-radius': '0'
                     },
                     handler: function () {
@@ -87,42 +96,30 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     }
                 }
             ]
-        },
+        }
+    },
+    showPeriodPicker: function () {
+        var me = this;
 
-        // control: {
-        //     'titlebar': {
-        //         back: 'onBack'
-        //     }
-        // }  
-    } 
-    // initialize: function(){
-    //     var me = this;
-    //     me.callParent( arguments );
-    //     me.toolBar = me.down( 'toolbar' );
+        if (me.picker == null) {
+            me.picker = Ext.create('GirocheckMobile.component.PeriodPicker');
 
-    //     // Ext.Viewport.setMenu(TruckerBK.Static.createGetMainMenu(),{
-    //     //     side: 'left',
-    //     //     reveal: true
-    //     // }); 
-    // },
-    // onBack: function( nav, e0pts ){
-    // },
-    // showMenuIcon:function(){ 
-    //     this.callParent(arguments);  
-    // },
-    // destroy: function(){
-    //     var me = this;
-    //     me.toolBar = null;
-    //     me.powaPinStatus = null;
-    //     me.callParent( arguments );
-    // },
-    // setAnimationDirection: function( direction ){
-    //     var me = this,
-    //             layout = me.getLayout(),
-    //             animation = layout.getAnimation();
+            me.picker.down('#periodPickerAccept').addListener({
+                tap: {
+                    fn: function (cmp, event, eOpts) { 
+                        var values = cmp.up().up().getValues();
 
-    //     if ( animation ) {
-    //         animation.setDirection( direction );
-    //     }
-    // }
+                        if (values) {
+                            values.page = 1;
+                            values.start = 0; 
+                            this.down('txList').getStore().load();  //{ params: values }
+                        }
+
+                    }, scope: me
+                }
+            });
+        }
+
+        Ext.Viewport.add(me.picker).show();
+    }
 });
