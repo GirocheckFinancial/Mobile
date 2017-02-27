@@ -7,7 +7,7 @@ Ext.define( 'GirocheckMobile.store.BaseStore', {
     extend: 'Ext.data.Store',
     config: {
         storeId: 'baseStore',
-        pageSize: 20,
+        pageSize:4,// 20,
         loadingMask: true,
         loadingMaskIgnoreURLs: null,
         loadingText: null,
@@ -101,7 +101,7 @@ Ext.define( 'GirocheckMobile.store.BaseStore', {
             return;
         }
 
-        Util.processResponse( operation.getResponse().responseText, operation );
+      //  Util.processResponse( operation.getResponse().responseText, operation );
     }
 } );
 

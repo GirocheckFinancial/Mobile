@@ -1,11 +1,11 @@
 Ext.define( 'GirocheckMobile.store.AbstractBaseStore', {
     extend: 'GirocheckMobile.store.BaseStore',
     config: {
-        pageSize:20,
+        //pageSize:20,
         buffered: true,
         clearOnPageLoad: false,
         searchParams:null,
-        autoLoad: false,
+        autoLoad: true,
       // proxy: {
       //     url:'jornada/list' //WS.jornada.list
       //  },

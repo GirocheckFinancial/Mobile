@@ -3,7 +3,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
     xtype: 'mainNavView',
     requires: [
         'GirocheckMobile.component.NavigationView',
-        'GirocheckMobile.view.main.Home'
+        'GirocheckMobile.view.main.pages.Home'
     ],
     config: {
         defaultBackButtonText: '',
@@ -94,7 +94,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         //         back: 'onBack'
         //     }
         // }  
-    },
+    } 
     // initialize: function(){
     //     var me = this;
     //     me.callParent( arguments );
