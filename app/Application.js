@@ -6,7 +6,7 @@
 Ext.define('GirocheckMobile.Application', {
     extend: 'Ext.app.Application',
     
-    name: 'GirocheckMobile',
+    name: 'VoltCash',
 
     requires:[
         'GirocheckMobile.utils.Request',

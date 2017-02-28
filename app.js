@@ -4,7 +4,7 @@
  * Sencha Cmd when upgrading.
  */
 Ext.application({
-    name: 'GirocheckMobile', 
+    name: 'VoltCash', 
 
     extend: 'GirocheckMobile.Application',
 

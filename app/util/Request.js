@@ -21,15 +21,16 @@ Ext.define('GirocheckMobile.utils.Request', {
     load: function(config) {
         var me = this;
         var obj = {
-            // headers: {
+            headers: {
             //    'TOKEN':  Ext.getStore('localStore').getValue('token')// TruckerBK.Global.getToken()
-            // },
+        },
+         
             method: config.method || 'GET',//'POST',
-            url: config.url,
+            url: Global.getUrlPrefix() + config.url,
             params: config.params,
             jsonData: config.jsonData,
             callback: config.callback,
-            success: config.success,
+            onSuccess: config.success,
             failure: config.failure,
             scope: config.scope,
             loadingMask: config.loadingMask || false,
@@ -37,11 +38,11 @@ Ext.define('GirocheckMobile.utils.Request', {
             processResponse: config.processResponse || false
         };
         
-        // if(config.params){
-        //     obj['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
-        // }else{
-        //     obj['headers']['Content-Type']  = 'application/json; charset=utf-8'; 
-        // }
+        if(config.params){
+            obj['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
+        }else{
+            obj['headers']['Content-Type']  = 'application/json; charset=utf-8'; 
+        }
         
         me.request(obj);
     },
@@ -57,10 +58,14 @@ Ext.define('GirocheckMobile.utils.Request', {
         }
     },
     onRequestcomplete: function(conn, response, options, eOpts) { 
-        // if (options.loadingMask) {
-        //     Loading.stop();
-        // }
-        // TruckerBK.Utils.processResponse(response.responseText, response);
+       var responseAsJson = Ext.decode(response.responseText);
+      
+       if(responseAsJson.status === 100){
+           options.onSuccess(responseAsJson.data);
+       }else{
+           alert(responseAsJson.statusMessage);
+       }
+      
     },
     onRequestexception: function(conn, response, options, eOpts) {
         alert('error ' + response);

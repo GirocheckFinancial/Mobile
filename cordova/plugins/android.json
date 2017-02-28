@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.girocheck.GirocheckMobile"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.girocheck.GirocheckMobile"
         }
     },
     "dependent_plugins": {}

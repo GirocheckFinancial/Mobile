@@ -9,6 +9,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
         'Ext.field.Toggle',
         'Ext.data.identifier.Uuid'
     ],
+   
     config: {
         title: 'GIROCHECK',
         cls: 'login',
@@ -39,7 +40,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                         items: [{
                             xtype: 'baseTextField',
                             cls: 'loginfield',
-                            itemId: 'User',
+                            itemId: 'userName',
                             name: 'user',
                             title: 'Username', //i18n.login.usuario,
                             placeHolder: 'Username'//i18n.login.enter_user
@@ -51,7 +52,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             xtype: 'passwordField',
                             labelWidth: 120,
                             cls: 'loginfield',
-                            itemId: 'Password',
+                            itemId: 'password',
                             name: 'password',
                             label: 'Password'// i18n.login.password
                             //value: 'this is just for dev'
@@ -99,11 +100,16 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             iconAlign: 'center'
                         },
                         items: [{
+                            itemId: 'loginButton',
                             xtype: 'basebutton', 
                             text: 'Login',
-                            iconCls: 'fa fa-sign-in'
+                            iconCls: 'fa fa-sign-in', 
+                            listeners: {
+                                tap: 'doLogin'
+                            }
                         },
                         {
+                            itemId: 'cancelButton',
                             xtype: 'basebutton',
                             cls: 'registerButton',
                             text: 'Register',
@@ -116,130 +122,19 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                     }
 
                     ]
-                },
-
-                // {
-                    
-                //         layout: {
-                //             type: 'hbox',
-                //             align:'center'
-                //         },
-                //         defaults:{
-                //              height:40,
-                //             style:{
-                //                 font:'normal 0.8rem/1.23077em helvetica, arial, sans-serif',
-                //                 padding:'12px 0px 0px 0px' 
-                //             }
-                //         },
-                //         items: [
-                //             {
-                //             xtype: 'link',
-                //             url: 'http://google.com',
-                //             html: 'Register' 
-                //         },{
-                //             flex:1
-                //         },
-                //         {
-                //             xtype: 'link',
-                //             url: 'http://google.com',
-                //             html: 'Forgot Password' 
-                //         }
-                //         ]
-                //     }
-                //     , {
-                //     xtype: 'container',
-                //     height: 60,
-                //     width: '100%',
-                //     margin: '0 0 0 0',
-                //     layout: {
-                //         type: 'hbox',
-                //         // pack: 'center',
-                //         align: 'center'
-                //     },
-                //     defaults: {
-                //         style:{
-                //             'text-align':'center'
-                //         }
-                //     },
-                //     items: [
-                //         {
-                //             xtype: 'link',
-                //             url: 'http://google.com',
-                //             html: 'FAQ'//i18n.login.olvido_las_credenciales
-                //         },
-                //         {
-                //             flex:1
-                //             // xtype: 'link',
-                //             // url: 'http://google.com',
-                //             // html: 'Forgot Password'//i18n.login.olvido_las_credenciales
-                //         },
-                //         {
-                //             xtype: 'link',
-                //             url: 'http://google.com',
-                //             html: 'Contact'//i18n.login.olvido_las_credenciales
-                //         }],
-
-                // }  
+                } 
                 ]
             }
-        ],
-        listeners: {
-            activate: 'onActivate',
-            deactivate: 'onDeactivate'
-        },
+        ], 
         control: {
             '#rememberMe': {
                 change: 'onRememberMeChange'
             },
-            '#loginButton':{
-                tap:'onLogin'
-            }
+            // '#loginButton':{
+            //     tap:'doLogin'
+            // }
         }
-    },
-    // initialize : function () {
-    //     // hide nestedlist toolbar
-    //         this.getNavigationBar().hide();
-    // },
-    onActivate: function (newActiveItem, container, oldActiveItem, eOpts) {
-        // var me = this;
-
-        // var rememberme = Ext.getStore('localStore').getValue('rememberme');
-
-        // me.down('#rememberMe').setValue(rememberme ? 1 : 0);
-
-    },
-    onDeactivate: function (newActiveItem, container, oldActiveItem, eOpts) {
-        // var me = this;
-        // TruckerBK.app.un({
-        //     orientationchange: 'onOrientationChange',
-        //     scope: me
-        // });
-
-        // me.down('#Password').setValue('');
-        // if (me.down('#rememberMe').getValue() === 0) {
-        //     me.down('#User').setValue('');
-        // }
-
-    },
-    onOrientationChange: function (event) {
-
-    },
-    onLogin:function(a,b,c,d){ 
-
- 
-        // Request.load( {
-        //     url: 'http://freegeoip.net/json/', 
-        //     success: function( response ){ 
-                 
-        //         var responseText = response.responseText; 
-        //         var responseJson = Ext.JSON.decode(responseText);
-                 
-        //         alert(responseJson.ip);
-
-        //         var device = new Ext.device.Device();
- 
-        //         }});
-    },
+    }, 
     onRememberMeChange: function (me, newValue, oldValue, eOpts) {
         me.el.dom.getElementsByClassName('x-thumb-wrap-el')[0].style['background-color'] = me.getValue() ? '#148c7e' : '#C0C0C0';
 
