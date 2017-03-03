@@ -9,7 +9,7 @@ Ext.application({
     extend: 'GirocheckMobile.Application',
 
     requires: [
-        'GirocheckMobile.view.main.Main',
+        'GirocheckMobile.view.main.Main' 
     ],
 
     // The name of the initial view to create. With the classic toolkit this class

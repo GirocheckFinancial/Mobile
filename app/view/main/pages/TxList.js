@@ -35,14 +35,7 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
             {
                 xclass: 'Ext.plugin.ListPaging',
                 autoPaging: true,
-                noMoreRecordsText: 'No more records',
-                // loadNextPage: function (a, b,c) { 
-                //     debugger;
-                //     var proxy = transaction.getProxy();
-                //     proxy.setExtraParam({a:'bbcc'});
-
-                //     Ext.getStore('txStore').load();  
-                // }
+                noMoreRecordsText: 'No more records' 
             },
             {
                 xclass: 'Ext.plugin.PullRefresh',

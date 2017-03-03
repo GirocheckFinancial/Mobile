@@ -1,52 +1,60 @@
 Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
-    extend: 'GirocheckMobile.component.NavigationView',// extend: 'GirocheckMobile.component.TabPanel',
+    extend: 'Ext.navigation.View',// extend: 'GirocheckMobile.component.TabPanel',
     xtype: 'authTabPanel',
     requires: [
         'GirocheckMobile.view.auth.Login',
-        // 'TruckerBK.view.auth.RegisterView'
+        'GirocheckMobile.view.auth.Register',
+        'GirocheckMobile.controller.AuthController'
     ],
-    initialize: function () {
-        // hide nestedlist toolbar
-        this.getToolbar().hide();
-    },
+    controller: 'authController',
+    // initialize: function () {
+    //     // hide nestedlist toolbar
+    //     this.getToolbar().hide();
+    // },
     config: {
         fullscreen: true,
-        navigationBar: false,
+        title: {
+            title: 'mytitle',
+            style: {
+                'text-align': 'left'
+            }
+        },
+        
+        navigationBar: {
+            // hidden: true,
+            height: '40px',
+            defaultBackButtonText:'',
+            style: {
+                'background-color': '#023159',
+                'color': 'white',
+                display:'none'
+            },
+            //backButton:{hidden:true, align:'left'},
+            listeners: {
+                back: 'onBackToLogin'
+            },
+            items: [
+                // {
+                //     xtype: 'button',
+                //     // cls: 'bar-bottom',
+                //     align: 'left',
+                //     text: 'Clear',
+                //     // style: {
+                //     //     'background-color': '#023159',
+                //     //       'color': '#023159'
+                //     // }
+                // }
+            ]
+        },
+        // navigationBar: false,
         items: [{
-            xtype: 'login',
-            title: 'Login',
-          //  iconCls: 'fa fa-sign-in'
+            xtype: 'login'
         }
-            // ,{ 
-            //     html:'register here',
-            //     title: 'Register',
-            //     iconCls: 'pictos pictos-compose'
-            // }
         ]
     },
     initialize: function () {
         var me = this;
 
         this.callParent(arguments);
-    },
-    onLockedTap: function (tab, event, indexTab) {
-        var me = this;
-        /*
-                if (indexTab !== 2) {
-                    me.down('baseNavigationView').reset();
-                }
-                */
-    },
-    onDeactivate: function () {
-        /*
-        var me = this,
-                subscribeTab = me.down('#subscribeTab');
-
-        if (subscribeTab) {
-            if (Ext.getStore('localStore').getValue('showSubscribe') === false) {
-                me.remove(subscribeTab);
-            }
-        }
-        */
     }
 });

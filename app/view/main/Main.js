@@ -10,11 +10,9 @@ Ext.define('GirocheckMobile.view.main.Main', {
     requires: [
         'GirocheckMobile.view.auth.AuthTabPanel',
         'GirocheckMobile.view.main.MainNavView',
-        'GirocheckMobile.store.TxStore',
-        'GirocheckMobile.controller.MainController'
+        'GirocheckMobile.store.TxStore' 
     ],
-    xtype: 'base',
-    controller: 'mainController',
+    xtype: 'base', 
     config: {
         xtype: 'container',
         itemId: 'baseContainer',

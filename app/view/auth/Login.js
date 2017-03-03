@@ -10,8 +10,8 @@ Ext.define('GirocheckMobile.view.auth.Login', {
         'Ext.data.identifier.Uuid'
     ],
    
-    config: {
-        title: 'GIROCHECK',
+    config: { 
+        title: 'Login',
         cls: 'login',
         items: [
 
@@ -108,14 +108,16 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 tap: 'doLogin'
                             }
                         },
-                        {
-                            itemId: 'cancelButton',
+                        { 
                             xtype: 'basebutton',
                             cls: 'registerButton',
                             text: 'Register',
                             iconCls: 'pictos pictos-lightning',
                             style:{
                                 'background-color':'#000000'
+                            },
+                            listeners:{
+                                tap:'onRegister'
                             }
                         }
                         ]
@@ -129,10 +131,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
         control: {
             '#rememberMe': {
                 change: 'onRememberMeChange'
-            },
-            // '#loginButton':{
-            //     tap:'doLogin'
-            // }
+            } 
         }
     }, 
     onRememberMeChange: function (me, newValue, oldValue, eOpts) {

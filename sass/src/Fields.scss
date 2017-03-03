@@ -56,3 +56,16 @@
 .x-field .x-label-el{
     font-weight: 500!important;
 }
+
+//Fieldset
+.x-form-fieldset{
+    margin: 5px 10px 5px 10px!important;
+}
+
+  .x-form-fieldset-title .x-innerhtml{
+    font: normal 1rem/1.25 helvetica, arial, sans-serif!important; 
+  }
+
+  .x-form-fieldset-inner{
+    border-radius: 6px;
+  }

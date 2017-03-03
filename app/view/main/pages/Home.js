@@ -53,7 +53,8 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                                     }
                                 },
                                 {
-                                    html: '9',
+                                    itemId:'balanceAmount',
+                                    html: '9', 
                                     style: {
                                         'font-size': '34px',
                                         'margin-top': '10px',
@@ -61,6 +62,7 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                                     }
                                 },
                                 {
+                                    itemId:'balanceCents',
                                     html: '38',
                                     style: {
                                         'font-size': '25px',

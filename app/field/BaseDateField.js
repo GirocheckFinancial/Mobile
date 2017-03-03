@@ -18,7 +18,7 @@ Ext.define('GirocheckMobile.field.BaseDateField', {
         dateFormat: 'm/d/Y',
         picker: {
             yearFrom: 2000,
-            slotOrder: ['month','day','year'],
+            slotOrder: ['month','day','year'] 
         }
     }, 
     getFecha: function () {

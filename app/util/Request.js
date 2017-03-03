@@ -68,7 +68,8 @@ Ext.define('GirocheckMobile.utils.Request', {
       
     },
     onRequestexception: function(conn, response, options, eOpts) {
-        alert('error ' + response);
+        alert('onRequestexception');
+        alert(Ext.encode(response));
      //   Ext.toast(i18n.msg.notify_error ,4000); 
     }
 });

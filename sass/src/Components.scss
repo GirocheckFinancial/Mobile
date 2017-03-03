@@ -72,6 +72,8 @@
 
 //Toolbar
 .x-toolbar{
+     background-color: '#023159';
+     color:white!important;
     .x-body{
         height:100%!important;
         .x-toolbar-inner{
@@ -84,6 +86,16 @@
         }
     }
 }
+
+//Nav View
+.x-toolbar .x-title{
+      color:white!important;
+}
+
+.x-button-back span {
+color: #023159;
+}
+
 //This was causing issue in the mobile
 .x-layout-box .x-layout-vbox-item.x-flexed > .x-body:not(.x-scroller), .x-layout-box .x-layout-vbox-item.x-flexed > .x-inner, .x-layout-box .x-layout-hbox-item.x-stretched > .x-body:not(.x-scroller), .x-layout-box .x-layout-hbox-item.x-stretched > .x-inner{
     height:100%!important;
