@@ -12,7 +12,7 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
     fullscreen: true,
     requires: [
         'GirocheckMobile.store.TxStore',
-        'GirocheckMobile.view.main.pages.TxList'
+        'GirocheckMobile.view.main.pages.TxList' 
     ], 
     items: [
         {
@@ -53,8 +53,8 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                                     }
                                 },
                                 {
-                                    itemId:'balanceAmount',
-                                    html: '9', 
+                                   id: 'balanceAmount',
+                                    html: '0',
                                     style: {
                                         'font-size': '34px',
                                         'margin-top': '10px',
@@ -62,8 +62,8 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                                     }
                                 },
                                 {
-                                    itemId:'balanceCents',
-                                    html: '38',
+                                    id: 'balanceCents',
+                                    html: '00',
                                     style: {
                                         'font-size': '25px',
                                         'margin-top': '0px',

@@ -33,17 +33,20 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                 items: [{
                     id: 'phone',
                     name: 'phone',
-                    placeHolder: 'Telephone'
+                    placeHolder: 'Telephone',
+                    value:'1234567890'
                 },
                 {
                     id: 'email',
                     name: 'email',
-                    placeHolder: 'Email'//i18n.login.enter_user
+                    placeHolder: 'Email', 
+                    value:'roberto.rodriguez@girocheck.com'
                 },
                 {
                     id: 'ssn',
                     name: 'ssn',
-                    placeHolder: 'SSN'//i18n.login.enter_user
+                    placeHolder: 'SSN',
+                    value:'757374530'
                 }]
             },
             {
@@ -51,37 +54,22 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                 items: [{
                     id: 'user',
                     name: 'user',
-                    placeHolder: 'Username' 
+                    placeHolder: 'Username',
+                    value:'b'
                 }, {
                     id: 'password',
                     name: 'password',
-                    placeHolder: 'Password' 
-                }, {
-                    id: 'pin',
-                    name: 'pin', 
-                    placeHolder: 'PIN (optional)',
-                    listeners: {
-                        focus: function (field, e, eOpts) {
-                            if (Ext.getCmp('register').doFocus) { 
-                                Ext.getCmp('register').doFocus = false;
-                            } else {
-                                Ext.getCmp('phone').focus(); 
-                                setTimeout(function () { 
-                                    Ext.getCmp('register').doFocus = true; 
-                                    Ext.getCmp('pin').focus();
-                                }, 300);
-                            }
-                        }
-                    }
+                    placeHolder: 'Password',
+                    value:'b'
                 }]
             },
             {
                 title: 'Credit Card',
                 items: [{
                     id: 'card',
-                    name: 'card',
-                    //title: 'Username', //i18n.login.usuario,
+                    name: 'card', 
                     placeHolder: 'Card Number',
+                    value:'5448353884100084',
                     listeners: {
                         focus: function (field, e, eOpts) {
                             if (Ext.getCmp('register').doFocus) { 
@@ -108,7 +96,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                 text: 'Accept',
                 iconCls: 'pictos pictos-check2',
                 listeners: {
-                    tap: 'doLogin'
+                    tap: 'doRegister'
                 }
             }
 

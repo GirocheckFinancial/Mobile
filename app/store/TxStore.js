@@ -45,8 +45,7 @@ Ext.define('GirocheckMobile.store.TxStore', {
     },
     load: function (store) {
         var me = this;
-        var params = Global.getDateRange();
-        params.clientId = 0;
+        var params = Global.geTxParams(); 
         me.getProxy().setExtraParams(params);
         me.callParent(arguments);
     },

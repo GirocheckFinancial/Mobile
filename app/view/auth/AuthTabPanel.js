@@ -48,6 +48,7 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
         },
         // navigationBar: false,
         items: [{
+            // xtype: 'register'
             xtype: 'login'
         }
         ]

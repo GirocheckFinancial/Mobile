@@ -5,10 +5,10 @@
  */
 Ext.define('GirocheckMobile.Application', {
     extend: 'Ext.app.Application',
-    
+
     name: 'VoltCash',
 
-    requires:[
+    requires: [
         'GirocheckMobile.utils.Request',
         'GirocheckMobile.utils.UUIDGenerator',
         'GirocheckMobile.util.Utils',
@@ -17,8 +17,9 @@ Ext.define('GirocheckMobile.Application', {
 
     stores: [
         // TODO: add global / shared stores here
+        'GirocheckMobile.store.LocalStore'
     ],
-    
+
     launch: function () {
         // TODO - Launch the application
     },

@@ -1,6 +1,7 @@
 Ext.define('GirocheckMobile.view.main.MainNavView', {
     extend: 'GirocheckMobile.component.NavigationView',
     xtype: 'mainNavView',
+    id: 'mainNavView',
     requires: [
         'GirocheckMobile.component.NavigationView',
         'GirocheckMobile.view.main.pages.Home'

@@ -12,7 +12,8 @@ Ext.define('GirocheckMobile.view.main.Main', {
         'GirocheckMobile.view.main.MainNavView',
         'GirocheckMobile.store.TxStore' 
     ],
-    xtype: 'base', 
+    xtype: 'base',
+    id: 'main', 
     config: {
         xtype: 'container',
         itemId: 'baseContainer',
@@ -29,8 +30,8 @@ Ext.define('GirocheckMobile.view.main.Main', {
                 xtype: 'authTabPanel'
             },
             {
-               xtype: 'mainNavView'
-            } 
+                xtype: 'mainNavView'
+            }
 
         ]
     }

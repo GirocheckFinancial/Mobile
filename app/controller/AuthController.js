@@ -6,8 +6,10 @@
  */
 Ext.define('GirocheckMobile.controller.AuthController', {
     extend: 'Ext.app.ViewController',
-
+    alternateClassName: 'AuthController',
     alias: 'controller.authController',
+    requires: ['GirocheckMobile.store.LocalStore'],
+
 
     doLogin: function (loginButton) {
         var me = this,
@@ -16,16 +18,14 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             navView = main.down('mainNavView'),
             userName = loginButton.up().up().down('#loginUser').getValue(),
             password = loginButton.up().up().down('#loginPassword').getValue();
-    
+
         //http://69.42.101.181:8095/FrontMobile/webresources/v1/
         Request.load({
             url: 'auth/login',
             method: 'POST',
             jsonData: { 'username': userName, 'password': password },
             success: function (response) {
-
-                Ext.getStore('txstore').load();
-                main.setActiveItem(navView);
+                Util.afterLogin(response);
             }
         });
     },
@@ -33,26 +33,42 @@ Ext.define('GirocheckMobile.controller.AuthController', {
     onRegister: function () {
         var me = this,
             view = me.getView();
-
         view.push(Ext.create('GirocheckMobile.view.auth.Register'));
-
+        //TODO move this to a method in the navigation bar
         view.getNavigationBar().setStyle({ display: 'block' });
+    },
+
+    doRegister: function (registerButton) {
+        var view = registerButton.up();
+
+        var phone = view.down('#phone').getValue();
+        var email = view.down('#email').getValue();
+        var ssn = view.down('#ssn').getValue();
+        var user = view.down('#user').getValue();
+        var password = view.down('#password').getValue();
+        var card = view.down('#card').getValue();
+
+        var obj = {
+            username: user,
+            password: password,
+            ssn: ssn,
+            email: email,
+            phone: phone,
+            cardNumber: card
+        };
+
+        Request.load({
+            url: 'gen/register',
+            method: 'POST',
+            jsonData: obj,
+            success: function (response) {
+                Util.afterLogin(response);
+            }
+        });
     },
 
     onBackToLogin: function () {
         this.getView().getNavigationBar().setStyle({ display: 'none' })
-    },
-
-    onRememberMeChange: function (me, newValue, oldValue, eOpts) {
-        var userName = me.up().up().down('#userName');
-        var password = me.up().up().down('#password');
-        var pin = me.up().up().down('#loginPin'); 
-    },
-
-    setBalance: function (balance) {
-        if (balance) {
-
-        }
     }
 
 });

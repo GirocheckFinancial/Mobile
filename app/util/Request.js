@@ -60,7 +60,7 @@ Ext.define('GirocheckMobile.utils.Request', {
     onRequestcomplete: function(conn, response, options, eOpts) { 
        var responseAsJson = Ext.decode(response.responseText);
       
-       if(responseAsJson.status === 100){
+       if(responseAsJson.status == 100){
            options.onSuccess(responseAsJson.data);
        }else{
            alert(responseAsJson.statusMessage);
