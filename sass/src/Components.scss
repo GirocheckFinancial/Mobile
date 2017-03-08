@@ -63,12 +63,11 @@
 }
 
 .greenGradient{
-      background-image: -webkit-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -webkit-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
         background-image: -moz-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
         background-image: -o-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
         background-image: -ms-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important; 
-
-}
+ }
 
 //Toolbar
 .x-toolbar{
@@ -279,6 +278,126 @@ color: #023159;
 
     .periodPickerAccept{
         background-color:#58b45f;
+    }
+}
+
+
+
+
+
+//------------------  MENU
+
+.x-menu-inner, .x-menu{
+    background-color:#024d86!important;
+}
+
+.blueGradient{
+        background-image: -webkit-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
+        background-image: -moz-linear-gradient(top, #024d86,#023159, #023159 51%, #023159)!important;
+        background-image: -o-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
+        background-image: -ms-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important; 
+ }
+
+ 
+.blueGradientBottom{
+        background-image: -webkit-linear-gradient(top,#023159 , #023159, #023159 51%, #024d86)!important;
+        background-image: -moz-linear-gradient(top, #024d86,#023159, #023159 51%, #023159)!important;
+        background-image: -o-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
+        background-image: -ms-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important; 
+ }
+
+.menu-button{
+    background-color: #023159;
+    background-image:none;
+  //  border: 1px solid white;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: white;
+    margin-bottom:0px!important;
+    color: white;
+    height: 50px;
+
+    .x-button-label{
+        font-weight:100!important;
+        margin-left:0px!important;
+        color: white;
+    }  
+
+    .x-button-icon{ 
+        font-size: 1em; 
+        color:white;
+    }
+}
+
+.menu-button-header{
+    @extend .blueGradient;
+    @extend .menu-button;
+    border-bottom-width: 1px!important;
+}
+
+.menu-button-bottom{
+    @extend .blueGradientBottom;
+    @extend .menu-button; 
+}
+ 
+
+.menu-button-top{
+    margin-top:30px!important;
+    margin-bottom:0px!important;
+    border-radius: 7px 7px 0px 0px!important;
+    -webkit-border-radius:7px 7px 0px 0px!important;
+    border-width:1px 1px 0px 1px;
+    }
+
+.menu-button-middle{
+    margin-bottom:0px!important;
+    border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+    border-width:1px 1px 0px 1px;
+    } 
+
+.menu-button-down{ 
+    border-radius: 0px 0px 7px 7px!important;
+    -webkit-border-radius: 0px 0px 7px 7px!important; 
+    }  
+
+.menu-space{
+    background-color: #024d86!important;
+    border-width:0px;
+    background-image:none!important;
+}
+
+.mtop-30{
+  margin-top:30px!important;  
+}
+
+.menu-lebel{ 
+    @extend  .menu-space;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    color: white;
+
+    p{
+       font-weight:100!important;
+       font-size:13px;
+    }
+
+    a{
+        font-weight:100!important;
+        font-size:14px;
+        color:white;
+        text-decoration:none;
+    }
+
+    span{
+         font-size:11px;
+    }
+
+       .x-button.x-button-pressing,.x-button.x-button-pressed{
+        background-image: -webkit-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
+        background-image: -moz-linear-gradient(top, #024d86,#023159, #023159 51%, #023159)!important;
+        background-image: -o-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
+        background-image: -ms-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important; 
     }
 }
  

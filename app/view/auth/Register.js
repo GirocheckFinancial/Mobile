@@ -46,7 +46,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                     id: 'ssn',
                     name: 'ssn',
                     placeHolder: 'SSN',
-                    value:'757374530'
+                    value:'201120388'
                 }]
             },
             {
@@ -69,7 +69,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                     id: 'card',
                     name: 'card', 
                     placeHolder: 'Card Number',
-                    value:'5448353884100084',
+                    value:'5448353884071541',
                     listeners: {
                         focus: function (field, e, eOpts) {
                             if (Ext.getCmp('register').doFocus) { 

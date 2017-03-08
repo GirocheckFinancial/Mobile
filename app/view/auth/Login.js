@@ -54,7 +54,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 id: 'loginUser',
                                 name: 'user',
                                 placeHolder: 'Username',
-                                value:'a'
+                                value:'b'
                             }]
                         }, {
                             items: [{
@@ -62,7 +62,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 id: 'loginPassword',
                                 name: 'password',
                                 placeHolder: 'Password',
-                                value:'a'
+                                value:'b'
                             }]
                         }, {
                             xtype: 'panel',

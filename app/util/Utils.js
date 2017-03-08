@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 Ext.define('GirocheckMobile.util.Utils', {
-    alternateClassName: 'Util',
+    alternateClassName: 'Util', 
     statics: {
         afterLogin: function (response) {
             if (response) {
@@ -24,37 +24,7 @@ Ext.define('GirocheckMobile.util.Utils', {
                 }
                 Ext.getCmp('main').setActiveItem(Ext.getCmp('mainNavView'));
             }
-        },
-
-        isObjectEmpty: function (obj) {
-            if (obj) {
-                for (var prop in obj) {
-                    return false;
-                }
-            }
-            return true;
-        },
-
-        openNewWindow: function (url) {
-            window.open(url, '_system', 'location=yes');
-        },
-        cutText: function (text, num) {
-            if (text.length > num) {
-                return text.substring(0, num - 3) + '...';
-            } else {
-                return text;
-            }
-        },
-
-        formatAmount: function (amount) {
-            var str = "";
-            if (amount < 0) {
-                str = "-$" + Math.abs(amount);
-            } else {
-                str = "+$" + amount;
-            }
-            return str;
-        }
+        } 
     }
 });
 

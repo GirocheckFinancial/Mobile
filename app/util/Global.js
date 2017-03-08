@@ -8,7 +8,7 @@ Ext.define('GirocheckMobile.utils.Global', {
     singleton: true,
     alias: 'widget.global',
     config: {
-        host: 'http://localhost:8085', //'http://69.42.101.181:8085',
+        host: 'http://69.42.101.181:8085', //'http://localhost:8085', //
         middleUrl: '/FrontMobile/',
         version:'v1',
         startDate: null,

@@ -7,9 +7,14 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         'GirocheckMobile.view.main.pages.Home'
     ],
     initialize: function () {
-        this.callParent();
-
         var me = this;
+        me.callParent( arguments );
+        me.toolBar = me.down( 'toolbar' );
+
+        Ext.Viewport.setMenu(GirocheckMobile.Static.createGetMainMenu(),{
+            side: 'left',
+            reveal: true
+        }); 
 
         me.down('#searchButton').addListener({
             tap: { fn: me.showPeriodPicker, scope: me }
