@@ -99,7 +99,7 @@ Ext.define('GirocheckMobile.controller.MainController', {
     },
     onLogout: function () {
         Ext.Viewport.hideMenu('left');
-      //  this.getView().toggleToolBar(false);
+        Global.setToken(null);
         var authTabPanel = Ext.getCmp('authTabPanel');
         Ext.getCmp('main').setActiveItem(authTabPanel);
     }

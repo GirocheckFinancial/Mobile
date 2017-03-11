@@ -22,9 +22,8 @@ Ext.define('GirocheckMobile.utils.Request', {
         var me = this;
         var obj = {
             headers: {
-                //    'TOKEN':  Ext.getStore('localStore').getValue('token')// TruckerBK.Global.getToken()
-            },
-
+                'TOKEN': Global.getToken()
+            }, 
             method: config.method || 'GET',//'POST',
             url: Global.getUrlPrefix() + config.url,
             params: config.params,
@@ -66,7 +65,6 @@ Ext.define('GirocheckMobile.utils.Request', {
         } else {
             Ext.toast(responseAsJson.statusMessage, 4000);
         }
-
     },
     onRequestexception: function (conn, response, options, eOpts) {
         Loading.stop();

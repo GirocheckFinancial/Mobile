@@ -58,9 +58,10 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 text: 'Contact',
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
+                page: 'GirocheckMobile.view.main.pages.Contact',
                 cls: ['menu-button', 'menu-button-top', 'menu-button-header'],
-                handler: function () {
-                    Ext.Viewport.hideMenu('left');
+                listeners: {
+                    tap: 'goTo'
                 }
 
             },
@@ -69,8 +70,10 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 text: 'FAQ',
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
+                page: 'GirocheckMobile.view.main.pages.FAQ',
                 cls: ['menu-button-bottom', 'menu-button-down'],
-                handler: function () {
+                listeners: {
+                    tap: 'goTo'
                 }
             },
             {

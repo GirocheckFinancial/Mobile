@@ -19,22 +19,13 @@ Ext.define('GirocheckMobile.store.TxStore', {
 
     requires: [
         'GirocheckMobile.model.TxModel'
-    ],
-    // listeners: {
-    //     // beforeload: function (store, operation, eOpts) {
-    //     //     this.onBeforeLoad(store, operation, eOpts);
-    //     // },
-    //     load: function (me, records, successful, operation, eOpts) {
-    //         this.onLoad(me, records, successful, operation, eOpts);
-    //     }
-    // },
+    ], 
     config: {
         storeId: 'txstore',
         model: 'GirocheckMobile.model.TxModel',
         proxy: {
-            timeout: 15000,
-          //   url:  'http://demo2769655.mockable.io/test2',
-           url: Global.getUrlPrefix() + 'tx/history', //'http://demo2769655.mockable.io/test2',
+            timeout: 15000, 
+            url: Global.getUrlPrefix() + 'tx/history', //'http://demo2769655.mockable.io/test2',
             type: 'ajax',
             reader: {
                 type: 'json',
@@ -43,26 +34,17 @@ Ext.define('GirocheckMobile.store.TxStore', {
             }
         }
     },
-    load: function (store) {
-        var me = this;
-        var params = Global.geTxParams(); 
-        me.getProxy().setExtraParams(params);
-        me.callParent(arguments);
-    },
-//     onLoad: function (me, records, successful, operation, eOpts) {
-//         // var responseRaw = operation.getResponse().responseText;
-//         // var responseJson = Ext.JSON.decode(responseRaw);
-// //   debugger;
-//         // var resp = operation;
-//         // if (resp) {
-//         //     if (resp._response) {
-//         //         resp = resp._response;
-//         //     }
-//         //     resp.code = responseJson.status;
+    load: function () {
+        var me = this,
+        proxy =  me.getProxy(),
+        params = Global.geTxParams();
 
-//         //     resp.success = (responseJson.status === 100);
-//         //     resp.data = responseJson.data;
-//         // } 
-//         // me.callParent(arguments);
-//     }
+        proxy.setExtraParams(params);
+
+        var headers = proxy.getHeaders() || {};
+        headers['TOKEN'] = Global.getToken();
+        proxy.setHeaders(headers);
+
+        me.callParent(arguments);
+    } 
 });
