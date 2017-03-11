@@ -8,23 +8,23 @@ Ext.define('GirocheckMobile.utils.Request', {
     alternateClassName: 'Request',
     singleton: true,
     autoAbort: false,
-    constructor: function(config) {
+    constructor: function (config) {
         var me = this;
         me.callParent(arguments);
-        me.on(Ext.apply(me.submitEvents, {scope: me}));
+        me.on(Ext.apply(me.submitEvents, { scope: me }));
     },
     submitEvents: {
         beforerequest: "onBeforerequest",
         requestcomplete: "onRequestcomplete",
         requestexception: "onRequestexception"
     },
-    load: function(config) {
+    load: function (config) {
         var me = this;
         var obj = {
             headers: {
-            //    'TOKEN':  Ext.getStore('localStore').getValue('token')// TruckerBK.Global.getToken()
-        },
-         
+                //    'TOKEN':  Ext.getStore('localStore').getValue('token')// TruckerBK.Global.getToken()
+            },
+
             method: config.method || 'GET',//'POST',
             url: Global.getUrlPrefix() + config.url,
             params: config.params,
@@ -37,39 +37,39 @@ Ext.define('GirocheckMobile.utils.Request', {
             loadingText: config.loadingText,
             processResponse: config.processResponse || false
         };
-        
-        if(config.params){
+
+        if (config.params) {
             obj['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
-        }else{
-            obj['headers']['Content-Type']  = 'application/json; charset=utf-8'; 
+        } else {
+            obj['headers']['Content-Type'] = 'application/json; charset=utf-8';
         }
-        
+
         me.request(obj);
     },
 
-    onBeforerequest: function(conn, options, eOpts) {
-        
+    onBeforerequest: function (conn, options, eOpts) {
+        Loading.start({ showloading: 1 });
         if (options.url.indexOf('http') !== 0) {
-            options.url = WS.HOST + WS.VERSION + '/' +  options.url;
+            options.url = WS.HOST + WS.VERSION + '/' + options.url;
         }
 
         if (options.loadingMask) {
-            Loading.start({showloading: 1});
+            Loading.start({ showloading: 1 });
         }
     },
-    onRequestcomplete: function(conn, response, options, eOpts) { 
-       var responseAsJson = Ext.decode(response.responseText);
-      
-       if(responseAsJson.status == 100){
-           options.onSuccess(responseAsJson.data);
-       }else{
-           alert(responseAsJson.statusMessage);
-       }
-      
+    onRequestcomplete: function (conn, response, options, eOpts) {
+        Loading.stop();
+        var responseAsJson = Ext.decode(response.responseText);
+
+        if (responseAsJson.status == 100) {
+            options.onSuccess(responseAsJson.data);
+        } else {
+            Ext.toast(responseAsJson.statusMessage, 4000);
+        }
+
     },
-    onRequestexception: function(conn, response, options, eOpts) {
-        alert('onRequestexception');
-        alert(Ext.encode(response));
-     //   Ext.toast(i18n.msg.notify_error ,4000); 
+    onRequestexception: function (conn, response, options, eOpts) {
+        Loading.stop();
+        Ext.toast(Ext.encode(response), 4000);
     }
 });

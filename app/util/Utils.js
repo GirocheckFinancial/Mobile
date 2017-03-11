@@ -9,10 +9,10 @@ Ext.define('GirocheckMobile.util.Utils', {
     statics: {
         afterLogin: function (response) {
             if (response) {
-                Global.setLoginInfo(response.clientId, response.token);
-                Ext.getStore('txstore').load();
-
+                Global.setLoginInfo(response);
+                Ext.getStore('txstore').load(); 
                 var balance = response.balance;
+                
                 if (balance) {
                     if (balance.indexOf('.') > -1) {
                         var arrayBalance = balance.split('.');
@@ -23,6 +23,9 @@ Ext.define('GirocheckMobile.util.Utils', {
                     }
                 }
                 Ext.getCmp('main').setActiveItem(Ext.getCmp('mainNavView'));
+                Ext.getCmp('authTabPanel').pop();
+                Static.updateMainManuName(response.clientName);
+                Ext.getCmp('authTabPanel').toggleToolBar(false);
             }
         } 
     }

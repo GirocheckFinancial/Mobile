@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 Ext.define('GirocheckMobile.utils.Static', {
-    alternateClassName: 'GirocheckMobile.Static',
+    alternateClassName: 'Static',
     singleton: true,
-    alias: 'widget.static',
+    alias: 'widget.Static',
     config: {
         mainMenu: null
     },

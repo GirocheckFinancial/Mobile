@@ -24,9 +24,7 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             url: 'auth/login',
             method: 'POST',
             jsonData: { 'username': userName, 'password': password },
-            success: function (response) {
-                Util.afterLogin(response);
-            }
+            success: Util.afterLogin
         });
     },
 
@@ -35,7 +33,8 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             view = me.getView();
         view.push(Ext.create('GirocheckMobile.view.auth.Register'));
         //TODO move this to a method in the navigation bar
-        view.getNavigationBar().setStyle({ display: 'block' });
+        view.toggleToolBar(true);
+       // view.getNavigationBar().setStyle({ display: 'block' });
     },
 
     doRegister: function (registerButton) {
@@ -61,14 +60,51 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             url: 'gen/register',
             method: 'POST',
             jsonData: obj,
-            success: function (response) {
-                Util.afterLogin(response);
-            }
+            success: Util.afterLogin
         });
+    }, 
+    onBackToLogin: function () {
+       Ext.getCmp('authTabPanel').toggleToolBar(false);
     },
 
-    onBackToLogin: function () {
-        this.getView().getNavigationBar().setStyle({ display: 'none' })
-    }
+    onForgotPassword: function () {
+        var me = this,
+            view = me.getView();
+        view.push(Ext.create('GirocheckMobile.view.auth.ForgotPassword'));
+        view.toggleToolBar(true); 
+    },
 
+    doForgotPassword: function (btn) {
+        var view = btn.up(),
+            profileError = view.down('#profileError'),
+            firstTime = !view.down('#securityCodeFieldset').el.isVisible();
+
+        var obj = view.getValues();
+
+        var valid = true;
+        for (i in obj) { valid = valid && (obj[i] || (firstTime && i === 'code')); }
+
+        profileError.setHtml(valid ? '' : 'Required Field');
+
+        if (valid && obj['maskSSN'].length != 4) {
+            profileError.setHtml('Please enter last 4 digits of your SSN');
+        }
+
+        if (valid && obj['code'] && obj['code'].length != 6) {
+            profileError.setHtml('Access Code should contains 6 digits');
+        }
+    
+        Request.load({
+            url: 'gen/forgotPassword',
+            method: 'POST',
+            jsonData: obj,
+            success: firstTime ? this.fpFirstTimeCallBack : Util.afterLogin
+        });
+    },
+    fpFirstTimeCallBack: function (response) {
+        for (var i = 0; i < 6; i++) {
+            Ext.getCmp('forgotPassword').items.items[i].el.toggle();
+        }
+        Ext.getCmp('fpAcceptButton').setText('Accept');
+    }
 });

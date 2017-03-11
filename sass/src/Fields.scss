@@ -15,7 +15,7 @@
  //}
 
  .x-on .x-thumb-wrap-el{
-     background-color: #58b45f!important;
+     background-color: #023159!important;
  }
 
 .x-thumb-wrap-el{
@@ -33,6 +33,10 @@
 .x-toggleslider .x-fill-el{
     width:0px;
 }
+
+.x-toggle {
+    float:right; 
+}    
 
 // Forms ----------------
 
@@ -68,4 +72,12 @@
 
   .x-form-fieldset-inner{
     border-radius: 6px;
+  }
+
+  //Error
+  .errorField div div{
+      color:red!important;
+      width:'100%';
+      text-align:center;
+      padding:10;
   }

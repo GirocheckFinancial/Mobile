@@ -1,16 +1,13 @@
 Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
     extend: 'Ext.navigation.View',// extend: 'GirocheckMobile.component.TabPanel',
     xtype: 'authTabPanel',
+    id: 'authTabPanel',
     requires: [
         'GirocheckMobile.view.auth.Login',
         'GirocheckMobile.view.auth.Register',
         'GirocheckMobile.controller.AuthController'
     ],
     controller: 'authController',
-    // initialize: function () {
-    //     // hide nestedlist toolbar
-    //     this.getToolbar().hide();
-    // },
     config: {
         fullscreen: true,
         title: {
@@ -19,37 +16,24 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
                 'text-align': 'left'
             }
         },
-        
+
         navigationBar: {
             // hidden: true,
             height: '40px',
-            defaultBackButtonText:'',
+            defaultBackButtonText: '',
             style: {
                 'background-color': '#023159',
                 'color': 'white',
-                display:'none'
+                display: 'none'
             },
             //backButton:{hidden:true, align:'left'},
             listeners: {
                 back: 'onBackToLogin'
-            },
-            items: [
-                // {
-                //     xtype: 'button',
-                //     // cls: 'bar-bottom',
-                //     align: 'left',
-                //     text: 'Clear',
-                //     // style: {
-                //     //     'background-color': '#023159',
-                //     //       'color': '#023159'
-                //     // }
-                // }
-            ]
+            }
         },
-        // navigationBar: false,
         items: [{
-            // xtype: 'register'
             xtype: 'login'
+            //  xtype:'forgotPassword'
         }
         ]
     },
@@ -57,5 +41,8 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
         var me = this;
 
         this.callParent(arguments);
+    },
+    toggleToolBar: function (show) {
+        this.getNavigationBar().setStyle({ display: (show ? 'block' : 'none') })
     }
 });

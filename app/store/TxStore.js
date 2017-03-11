@@ -20,14 +20,14 @@ Ext.define('GirocheckMobile.store.TxStore', {
     requires: [
         'GirocheckMobile.model.TxModel'
     ],
-    listeners: {
-        // beforeload: function (store, operation, eOpts) {
-        //     this.onBeforeLoad(store, operation, eOpts);
-        // },
-        load: function (me, records, successful, operation, eOpts) {
-            this.onLoad(me, records, successful, operation, eOpts);
-        }
-    },
+    // listeners: {
+    //     // beforeload: function (store, operation, eOpts) {
+    //     //     this.onBeforeLoad(store, operation, eOpts);
+    //     // },
+    //     load: function (me, records, successful, operation, eOpts) {
+    //         this.onLoad(me, records, successful, operation, eOpts);
+    //     }
+    // },
     config: {
         storeId: 'txstore',
         model: 'GirocheckMobile.model.TxModel',
@@ -49,20 +49,20 @@ Ext.define('GirocheckMobile.store.TxStore', {
         me.getProxy().setExtraParams(params);
         me.callParent(arguments);
     },
-    onLoad: function (me, records, successful, operation, eOpts) {
-        // var responseRaw = operation.getResponse().responseText;
-        // var responseJson = Ext.JSON.decode(responseRaw);
-//   debugger;
-        // var resp = operation;
-        // if (resp) {
-        //     if (resp._response) {
-        //         resp = resp._response;
-        //     }
-        //     resp.code = responseJson.status;
+//     onLoad: function (me, records, successful, operation, eOpts) {
+//         // var responseRaw = operation.getResponse().responseText;
+//         // var responseJson = Ext.JSON.decode(responseRaw);
+// //   debugger;
+//         // var resp = operation;
+//         // if (resp) {
+//         //     if (resp._response) {
+//         //         resp = resp._response;
+//         //     }
+//         //     resp.code = responseJson.status;
 
-        //     resp.success = (responseJson.status === 100);
-        //     resp.data = responseJson.data;
-        // } 
-        // me.callParent(arguments);
-    }
+//         //     resp.success = (responseJson.status === 100);
+//         //     resp.data = responseJson.data;
+//         // } 
+//         // me.callParent(arguments);
+//     }
 });

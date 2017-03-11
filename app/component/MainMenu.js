@@ -1,6 +1,10 @@
 Ext.define('GirocheckMobile.component.MainMenu', {
     extend: 'Ext.Menu',
     xtype: 'mainMenu',
+    requires: [
+        'GirocheckMobile.controller.MainController'
+    ],
+    controller: 'mainController',
     config: {
         width: 250,
         scrollable: 'vertical',
@@ -17,30 +21,32 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 xtype: 'button',
                 text: 'Profile',
                 iconCls: 'fa fa-angle-right',
-                iconAlign:'right',
+                iconAlign: 'right',
                 cls: ['menu-button'],
-                handler: function () {
-                    Ext.Viewport.hideMenu('left');
+                page: 'GirocheckMobile.view.main.pages.Profile',
+                listeners: {
+                    tap: 'goTo'
                 }
             },
             {
                 xtype: 'button',
-                text: 'Update Card',
+                text: 'Replace Card',
                 iconCls: 'fa fa-angle-right',
-                iconAlign:'right',
+                iconAlign: 'right',
+                page: 'GirocheckMobile.view.main.pages.ReplaceCard',
                 cls: ['menu-button'],
-                handler: function () {
-                    Ext.Viewport.hideMenu('left');
+                listeners: {
+                    tap: 'goTo'
                 }
             },
             {
                 xtype: 'button',
-                text: 'Logout', 
+                text: 'Logout',
                 iconCls: 'fa fa-angle-right',
-                iconAlign:'right',
+                iconAlign: 'right',
                 cls: ['menu-button-bottom', 'menu-button-down'],
-                handler: function () {
-                    Ext.Viewport.hideMenu('left');
+                listeners: {
+                    tap: 'onLogout'
                 }
             },
             {
@@ -51,7 +57,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 xtype: 'button',
                 text: 'Contact',
                 iconCls: 'fa fa-angle-right',
-                iconAlign:'right',
+                iconAlign: 'right',
                 cls: ['menu-button', 'menu-button-top', 'menu-button-header'],
                 handler: function () {
                     Ext.Viewport.hideMenu('left');
@@ -62,11 +68,11 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 xtype: 'button',
                 text: 'FAQ',
                 iconCls: 'fa fa-angle-right',
-                iconAlign:'right',
+                iconAlign: 'right',
                 cls: ['menu-button-bottom', 'menu-button-down'],
                 handler: function () {
                 }
-            }, 
+            },
             {
                 xtype: 'spacer'
             },
@@ -75,7 +81,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 height: 70,
                 // cls: 'menu-space',
                 html: '<a href="">Girocheck Financial Inc</a><br>',
-                
+
                 cls: 'menu-lebel',
 
             }

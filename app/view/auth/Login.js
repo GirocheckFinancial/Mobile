@@ -48,13 +48,13 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             cls: 'loginfield'
                         }
                     },
-                    items: [ 
+                    items: [
                         {
                             items: [{
                                 id: 'loginUser',
                                 name: 'user',
                                 placeHolder: 'Username',
-                                value:'b'
+                                value: 'b'
                             }]
                         }, {
                             items: [{
@@ -62,7 +62,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 id: 'loginPassword',
                                 name: 'password',
                                 placeHolder: 'Password',
-                                value:'b'
+                                value: 'b'
                             }]
                         }, {
                             xtype: 'panel',
@@ -79,23 +79,16 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             items: [
                                 {
                                     xtype: 'link',
+                                    id: 'forgotPasswordLink',
                                     url: 'http://google.com',
-                                    html: 'Forgot Password'
+                                    html: 'Forgot Password',
+                                    listeners: {
+                                        tap: 'onForgotPassword'
+                                    }
                                 },
                                 {
                                     flex: 1
                                 }
-                                // , {
-                                //     xtype: 'togglefield',
-                                //     id: 'usePin',
-                                //     cls: 'rememberme',
-                                //     labelWidth: 110,
-                                //     label: 'Use PIN', 
-                                //     value: 0,
-                                //     listeners: {
-                                //         change: 'onRememberMeChange'
-                                //     }
-                                // }
                             ]
                         },
 
@@ -140,9 +133,8 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                 ]
             }
         ]
-        // ,
-        // listeners: {
-        //     activate: 'onLoginPageActivate' 
-        // },
+    },
+    initialize: function (panel) {
+        this.down('#forgotPasswordLink').el.on('click', 'onForgotPassword');
     }
 });

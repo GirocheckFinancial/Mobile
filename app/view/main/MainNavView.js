@@ -1,43 +1,33 @@
 Ext.define('GirocheckMobile.view.main.MainNavView', {
-    extend: 'GirocheckMobile.component.NavigationView',
+    extend: 'Ext.navigation.View',
     xtype: 'mainNavView',
     id: 'mainNavView',
     requires: [
-        'GirocheckMobile.component.NavigationView',
-        'GirocheckMobile.view.main.pages.Home'
+        'GirocheckMobile.view.main.pages.Home',
+        'GirocheckMobile.view.main.pages.Profile',
+        'GirocheckMobile.controller.MainController',
+        'GirocheckMobile.view.main.pages.ReplaceCard'
     ],
+    controller: 'mainController',
     initialize: function () {
         var me = this;
-        me.callParent( arguments );
-        me.toolBar = me.down( 'toolbar' );
+        me.callParent(arguments);
+        me.toolBar = me.down('toolbar');
 
-        Ext.Viewport.setMenu(GirocheckMobile.Static.createGetMainMenu(),{
+        Ext.Viewport.setMenu(Static.createGetMainMenu(), {
             side: 'left',
             reveal: true
-        }); 
+        });
 
         me.down('#searchButton').addListener({
             tap: { fn: me.showPeriodPicker, scope: me }
         });
     },
     config: {
-        defaultBackButtonText: '',
-        titleLeft: true,
-        layout: {
-            type: 'card',
-            animation: {
-                duration: 150,
-                easing: 'ease-out',
-                type: 'slide',
-                direction: 'left'
-            }
-        },
+        fullscreen: true,
         items: [
             { xtype: 'home' }
         ],
-
-        autoDestroy: false,
-
         navigationBar: {
             height: '40px',
             style: {
@@ -72,12 +62,6 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     style: {
                         'background-color': '#023159',
                         'margin-right': '10px'
-                    },
-                    handler: function () {
-                        var me = this;
-                        // if( me.getIconCls() == 'stats-bars'){
-                        //     TruckerBK.APP.fireEvent('showGraph');
-                        // }
                     }
                 },
                 {
@@ -88,22 +72,15 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     align: 'right',
                     width: '30px',
                     style: {
-                        //  'background-color': '#023159',
                         'background-color': '#078241',
                         'padding': '0 0 0 10px',
                         'height': '100%',
                         'border-radius': '0'
-                    },
-                    handler: function () {
-                        var me = this;
-                        // if( me.getIconCls() == 'stats-bars'){
-                        //     TruckerBK.APP.fireEvent('showGraph');
-                        // }
                     }
                 }
             ]
         }
-    },
+    }, 
     showPeriodPicker: function () {
         var me = this;
 
@@ -112,12 +89,12 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
 
             me.picker.down('#periodPickerAccept').addListener({
                 tap: {
-                    fn: function (cmp, event, eOpts) { 
+                    fn: function (cmp, event, eOpts) {
                         var values = cmp.up().up().getValues();
 
                         if (values) {
                             values.page = 1;
-                            values.start = 0; 
+                            values.start = 0;
                             this.down('txList').getStore().load();  //{ params: values }
                         }
 

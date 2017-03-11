@@ -17,22 +17,7 @@ Ext.define('GirocheckMobile.store.LocalStore', {
             type: 'localstorage',
             id: 'localStore'
         }
-    },
-    // updateData: function (model) {
-    //     debugger;
-    //     var me = this;
-    //     if (me.getCount() > 0) {
-    //         var oldModel = me.getAt(0);
-
-    //         me.setData({
-    //             deviceId: typeof model.deviceId !== 'undefined' ? model.deviceId : oldModel.get('deviceId'),
-    //             usePin: typeof model.usePin !== 'undefined' ? model.usePin : oldModel.get('usePin')
-    //         });
-
-    //     } else {
-    //         me.setData(model);
-    //     }
-    // },
+    }, 
     getValue: function (attr) {
         var me = this;
         if (me.getCount() > 0) {
