@@ -1,8 +1,7 @@
 Ext.define('GirocheckMobile.view.auth.Login', {
     extend: 'GirocheckMobile.component.BasePage',
     xtype: 'login',
-    requires: [
-        'GirocheckMobile.component.BaseFormPanel',
+    requires: [ 
         'GirocheckMobile.component.Link',
         'GirocheckMobile.component.BaseButton',
         'GirocheckMobile.field.PasswordField',

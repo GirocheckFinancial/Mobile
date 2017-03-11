@@ -17,8 +17,7 @@ Ext.define('GirocheckMobile.Application', {
     ],
 
     stores: [
-        // TODO: add global / shared stores here
-        'GirocheckMobile.store.LocalStore'
+        // TODO: add global / shared stores here 
     ],
 
     launch: function () {

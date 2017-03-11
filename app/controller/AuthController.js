@@ -7,9 +7,7 @@
 Ext.define('GirocheckMobile.controller.AuthController', {
     extend: 'Ext.app.ViewController',
     alternateClassName: 'AuthController',
-    alias: 'controller.authController',
-    requires: ['GirocheckMobile.store.LocalStore'],
-
+    alias: 'controller.authController', 
 
     doLogin: function (loginButton) {
         var me = this,

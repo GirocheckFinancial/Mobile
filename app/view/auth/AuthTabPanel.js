@@ -1,5 +1,5 @@
 Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
-    extend: 'Ext.navigation.View',// extend: 'GirocheckMobile.component.TabPanel',
+    extend: 'Ext.navigation.View',
     xtype: 'authTabPanel',
     id: 'authTabPanel',
     requires: [

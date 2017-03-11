@@ -1,13 +1,9 @@
 Ext.define('GirocheckMobile.view.auth.Register', {
     extend: 'GirocheckMobile.component.BasePage',
     xtype: 'register',
-    requires: [
-        'GirocheckMobile.component.BaseFormPanel',
-        'GirocheckMobile.component.Link',
+    requires: [  
         'GirocheckMobile.component.BaseButton',
-        'GirocheckMobile.field.PasswordField',
-        'Ext.field.Toggle',
-        'Ext.data.identifier.Uuid'
+        'GirocheckMobile.field.PasswordField' 
     ],
     config: {
         title: 'Register',

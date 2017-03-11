@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 Ext.define('GirocheckMobile.view.auth.RegisterFormPanel', {
-    extend: 'Ext.panel.Panel', //'GirocheckMobile.component.BaseFormPanel',
+    extend: 'Ext.panel.Panel',  
     xtype: 'registerFormPanel',
     requires: [
         'Ext.form.FieldSet',

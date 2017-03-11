@@ -1,8 +1,7 @@
 Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
     extend: 'GirocheckMobile.component.BasePage',
     xtype: 'forgotPassword',
-    requires: [
-        'GirocheckMobile.component.BaseFormPanel',
+    requires: [ 
         'GirocheckMobile.component.BaseButton'
     ],
     config: {
