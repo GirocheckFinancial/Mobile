@@ -59,7 +59,7 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
             ]
         },
         {
-            title: 'New Password',
+            title: '',
             id: 'newPasswordFieldset',
             margin: '10 0 0 0',
              hidden: true,

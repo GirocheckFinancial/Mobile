@@ -19,7 +19,10 @@ Ext.define('GirocheckMobile.controller.MainController', {
             valid = true,
             newCardNumber = me.down('#newCard').getValue();
 
-        if (!newCardNumber) return;
+        if (!newCardNumber || newCardNumber.lenght < 10 ){  
+            Ext.toast("Invalid Card Number", 4000);
+            return;
+        }
 
         var obj = {
             clientId: Global.getClientId(),

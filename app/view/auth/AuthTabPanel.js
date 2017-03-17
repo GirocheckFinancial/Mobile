@@ -32,6 +32,7 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
             }
         },
         items: [{
+           //   xtype: 'register'
             xtype: 'login'
             //  xtype:'forgotPassword'
         }

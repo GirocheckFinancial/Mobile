@@ -8,7 +8,9 @@ Ext.define('GirocheckMobile.utils.Global', {
     singleton: true,
     alias: 'widget.global',
     config: {
-        host:'http://69.42.101.181:8085', // 'http://localhost:8085', //
+        //  host:'http://localhost:8085',
+        // host:'http://69.42.101.181:8085',
+        host:'https://mobile.girocheck.net:8999',
         middleUrl: '/FrontMobile/',
         version: 'v1',
         startDate: null,
@@ -25,17 +27,13 @@ Ext.define('GirocheckMobile.utils.Global', {
     geTxParams: function () {
         var me = this;
         return { startDate: me.getStartDate(), endDate: me.getEndDate(), clientId: me.getClientId() };
-    },
-    // getClientId: function () {
-    //     var me = this;
-    //     return {clientId:me.getClientId()};
-    // },
+    }, 
     getUrlPrefix: function () {
-        var me = this;
+        var me = this; 
         return me.getHost() + me.getMiddleUrl() + me.getVersion() + '/';
     },
     setLoginInfo: function (response) {
-        var me = this;
+        var me = this; 
         me.setClientId(response.clientId);
         me.setToken(response.token);
         me.setEmail(response.clientEmail);

@@ -7,7 +7,7 @@
 Ext.define('GirocheckMobile.controller.AuthController', {
     extend: 'Ext.app.ViewController',
     alternateClassName: 'AuthController',
-    alias: 'controller.authController', 
+    alias: 'controller.authController',
 
     doLogin: function (loginButton) {
         var me = this,
@@ -32,18 +32,20 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         view.push(Ext.create('GirocheckMobile.view.auth.Register'));
         //TODO move this to a method in the navigation bar
         view.toggleToolBar(true);
-       // view.getNavigationBar().setStyle({ display: 'block' });
+        // view.getNavigationBar().setStyle({ display: 'block' });
     },
 
     doRegister: function (registerButton) {
-        var view = registerButton.up();
-
-        var phone = view.down('#phone').getValue();
-        var email = view.down('#email').getValue();
-        var ssn = view.down('#ssn').getValue();
-        var user = view.down('#user').getValue();
-        var password = view.down('#password').getValue();
-        var card = view.down('#card').getValue();
+        var view = registerButton.up(),
+            registerError = view.down('#registerError'),
+            phone = view.down('#phone').getValue(),
+            email = view.down('#email').getValue(),
+            ssn = view.down('#ssn').getValue(),
+            user = view.down('#user').getValue(),
+            password = view.down('#password').getValue(),
+            rePassword = view.down('#rePassword').getValue(), 
+            card = view.down('#card').getValue(),
+            valid = true;
 
         var obj = {
             username: user,
@@ -54,22 +56,51 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             cardNumber: card
         };
 
+         for (i in obj) { valid = valid && (obj[i]); }
+
+         if(!valid){ 
+             Ext.toast( 'Required Field', 4000);
+             return;
+         }else{
+            if(password !== rePassword){
+               Ext.toast( "Password fields don't match", 4000);
+               return;
+            }
+
+             if(password.length < 8){
+                Ext.toast( "Password must contain at least 8 characters", 4000); 
+                 return;
+            }
+
+
+            if(!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)){
+               Ext.toast( "Password must contain letters and numbers", 4000);
+                 return;
+            }
+
+             if(!/^([0-9]{15,})$/.test(card)){
+               Ext.toast( "Invalid card number", 4000);
+                return;
+            }  
+         } 
+ 
+
         Request.load({
             url: 'gen/register',
             method: 'POST',
             jsonData: obj,
             success: Util.afterLogin
         });
-    }, 
+    },
     onBackToLogin: function () {
-       Ext.getCmp('authTabPanel').toggleToolBar(false);
+        Ext.getCmp('authTabPanel').toggleToolBar(false);
     },
 
     onForgotPassword: function () {
         var me = this,
             view = me.getView();
         view.push(Ext.create('GirocheckMobile.view.auth.ForgotPassword'));
-        view.toggleToolBar(true); 
+        view.toggleToolBar(true);
     },
 
     doForgotPassword: function (btn) {
@@ -91,7 +122,7 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         if (valid && obj['code'] && obj['code'].length != 6) {
             profileError.setHtml('Access Code should contains 6 digits');
         }
-    
+
         Request.load({
             url: 'gen/forgotPassword',
             method: 'POST',
@@ -104,5 +135,15 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             Ext.getCmp('forgotPassword').items.items[i].el.toggle();
         }
         Ext.getCmp('fpAcceptButton').setText('Accept');
+    },  
+    onAcceptTerms: function (me, newValue, oldValue, eOpts) { 
+        var view = me.up().up();
+       if(me.getValue() == "true"){
+           view.down('#registerAcceptButton').removeCls('mobileapp-button-disabled');
+           view.down('#registerAcceptButton').addCls('mobileapp-button');
+       }else{
+           view.down('#registerAcceptButton').removeCls('mobileapp-button');
+           view.down('#registerAcceptButton').addCls('mobileapp-button-disabled');
+       }
     }
 });

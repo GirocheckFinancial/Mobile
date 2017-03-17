@@ -27,6 +27,23 @@ Ext.define('GirocheckMobile.util.Utils', {
                 Static.updateMainManuName(response.clientName);
                 Ext.getCmp('authTabPanel').toggleToolBar(false);
             }
+        },
+        formatDate:function(date){
+            if(!date)return "";
+
+            var y = date.substring(0,4);
+            var m = date.substring(4,6);
+            var d = date.substring(6);
+            return m + '/' + '/' + d + '/' + y;
+        },
+         formatAmount: function (amount) {
+            var str = "";
+            if (amount < 0) {
+                str = "-$" + Math.abs(amount);
+            } else {
+                str = "+$" + amount;
+            }
+            return str;
         } 
     }
 });

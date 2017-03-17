@@ -20,8 +20,15 @@ Ext.define('GirocheckMobile.Application', {
         // TODO: add global / shared stores here 
     ],
 
-    launch: function () {
-        // TODO - Launch the application
+    launch: function () { 
+        //    Request.load({
+        //     url: 'http://demo8105304.mockable.io/girocheckUrl',
+        //     method: 'GET', 
+        //     success: function (response) {  
+        //         Global.setHost(response.responseText);  
+        //         Ext.toast('Connecting to:' + Global.getHost(), 4000); 
+        //     }
+        // });
     },
 
     onAppUpdate: function () {

@@ -71,7 +71,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 width: '100%',
                 hidden: true,
                 html: '<div style="text-align:center"><br><h3>We just sent you a 6 digits Access Code.' +
-                ' You can access with that code in the next 30 minutes.</span></div>'
+                ' You can access with that code for the next 30 minutes.</span></div>'
             },
             {
                 xtype: 'fieldset',

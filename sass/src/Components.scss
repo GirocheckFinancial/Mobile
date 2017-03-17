@@ -46,6 +46,19 @@
             }
 }
 
+.mobileapp-button-disabled{ 
+        @extend .greenGradientDisabled;
+            .x-button-label{
+                color:white;
+                font: normal 15px/ 18px Helvetica, sans-serif; 
+                padding-left: 6px;
+            }
+            .x-button-icon{
+                color: white;
+                font-size: 1em; 
+            }
+}
+
 .registerButton{ 
         background-image: -webkit-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
         background-image: -moz-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
@@ -64,6 +77,13 @@
 
 .greenGradient{
         background-image: -webkit-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -moz-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -o-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
+        background-image: -ms-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important; 
+ }
+
+ .greenGradientDisabled{
+        background-image: -webkit-linear-gradient(top, #8CEDBC 75%, #8CEDBC, #8CEDBC 51%, #8CEDBC 75%)!important;
         background-image: -moz-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
         background-image: -o-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important;
         background-image: -ms-linear-gradient(top, #078241, #07a74f, #1fb053 51%, #58b45f)!important; 

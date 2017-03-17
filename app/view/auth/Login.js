@@ -1,7 +1,7 @@
 Ext.define('GirocheckMobile.view.auth.Login', {
     extend: 'GirocheckMobile.component.BasePage',
     xtype: 'login',
-    requires: [ 
+    requires: [
         'GirocheckMobile.component.Link',
         'GirocheckMobile.component.BaseButton',
         'GirocheckMobile.field.PasswordField',
@@ -27,7 +27,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                     //  margin: '20 0 40',
                     height: 100
                 }]
-            },
+            }, 
             {
                 height: 50,
                 hidden: true,
@@ -53,7 +53,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 id: 'loginUser',
                                 name: 'user',
                                 placeHolder: 'Username',
-                                value: 'b'
+                                value: 'kerdberg'
                             }]
                         }, {
                             items: [{
@@ -61,7 +61,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 id: 'loginPassword',
                                 name: 'password',
                                 placeHolder: 'Password',
-                                value: 'b'
+                                value: '12345678'
                             }]
                         }, {
                             xtype: 'panel',
@@ -134,6 +134,6 @@ Ext.define('GirocheckMobile.view.auth.Login', {
         ]
     },
     initialize: function (panel) {
-        this.down('#forgotPasswordLink').el.on('click', 'onForgotPassword');
-    }
+        this.down('#forgotPasswordLink').el.on('click', 'onForgotPassword'); 
+    } 
 });

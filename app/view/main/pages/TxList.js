@@ -2,6 +2,7 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
     extend: 'Ext.dataview.List',
     alias: 'widget.txList',
     xtype: 'txList',
+    id:'txList',
     requires: [
         'Ext.plugin.ListPaging',
         'GirocheckMobile.store.TxStore',
@@ -23,7 +24,7 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
         store: 'txStore',
         itemTpl: new Ext.XTemplate(
             '<div>' +
-            '<p class="itemDate">{date}</p>' +
+            '<p class="itemDate">{[Util.formatDate(values.date)]}</p>' +
             '<table style="margin:4px 0px 4px 0px">' +
             '<tr><td style="width:100%"><p class="itemDesc">{description}</p></td>' +
             '<td width="40px"><p class=<tpl if="amount &gt; 0">itemAmountPossitive<tpl else>itemAmountNegative</tpl>>{[Util.formatAmount(values.amount)]}</p></td></tr>' +
@@ -41,6 +42,6 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
                 xclass: 'Ext.plugin.PullRefresh',
                 pullText: 'Pull down to refresh'
             }
-        ]
+        ] 
     }
 });

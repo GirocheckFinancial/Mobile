@@ -25,7 +25,7 @@ Ext.define('GirocheckMobile.store.TxStore', {
         model: 'GirocheckMobile.model.TxModel',
         proxy: {
             timeout: 15000, 
-            url: Global.getUrlPrefix() + 'tx/history', //'http://demo2769655.mockable.io/test2',
+            url:null, //'http://demo2769655.mockable.io/test2',
             type: 'ajax',
             reader: {
                 type: 'json',
@@ -40,7 +40,8 @@ Ext.define('GirocheckMobile.store.TxStore', {
         params = Global.geTxParams();
 
         proxy.setExtraParams(params);
-
+        proxy.setUrl(Global.getUrlPrefix() + 'tx/history');
+          
         var headers = proxy.getHeaders() || {};
         headers['TOKEN'] = Global.getToken();
         proxy.setHeaders(headers);
