@@ -15,7 +15,9 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
     },
     scrollable: true,
     requires: [
-        'GirocheckMobile.controller.MainController'
+        'GirocheckMobile.controller.MainController',
+        'GirocheckMobile.field.BaseTextField',
+        'GirocheckMobile.field.PasswordField',
     ],
     controller: 'mainController',
     defaults: {
@@ -30,20 +32,35 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
                 xtype: 'textfield',
                 margin: '5'
             },
-            items: [{
-                id: 'profileUsername',
-                name: 'profileUsername',
-                label: 'Username' 
-            }, {
-                id: 'profilePhone',
-                name: 'phone',
-                label: 'Telephone' 
-            },
-            {
-                id: 'profileEmail',
-                name: 'email',
-                label: 'Email' 
-            }]
+            items: [
+                {
+                    xtype: 'baseTextField',
+                    placeHolder: 'Username',
+                    fieldId: 'profileUsername',
+                    name: 'username',
+                    hint: 'Enter your Username',
+                    minLength: 6,
+                    regExp: /^[a-zA-Z0-9]*$/,
+                    regExtErrorMsg: 'Username must to contain letters and numbers and have at least 6 characters.'
+                }, {
+                    xtype: 'baseTextField',
+                    fieldId: 'profilePhone',
+                    placeHolder: 'Telephone',
+                    name:'phone',
+                    hint: 'Enter telephone number used when registering <br> VoltCash, include country code <br> (1 if in USA) with no dashes.',
+                    minLength: 10,
+                    regExp: /^[0-9]*$/,
+                    regExtErrorMsg: 'Enter just digits' 
+                },
+                {
+                    xtype: 'baseTextField',
+                    fieldId: 'profileEmail',
+                    name:'email',
+                    placeHolder: 'Email',
+                    hint: 'Enter your e-mail address. <br> This will be used for password recovery',
+                    regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    regExtErrorMsg: 'Invalid email format' 
+                }]
         },
 
         {
@@ -62,62 +79,27 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
             title: '',
             id: 'newPasswordFieldset',
             margin: '10 0 0 0',
-             hidden: true,
+            hidden: true,
             defaults: {
-                xtype: 'textfield',
-                inputType: 'password',
-                margin: '5',
-                labelWidth: 140
+                xtype: 'passwordField',
+                margin: '5'
             },
-            items: [{
-                id: 'newPassword',
-                label: 'New Password',
-                listeners: {
-                    focus: function (field, e, eOpts) {
-                        if (Ext.getCmp('profile').doFocus) {
-                            Ext.getCmp('profile').doFocus = false;
-                        } else {
-                            Ext.getCmp('retypePassword').focus();
-                            setTimeout(function () {
-                                Ext.getCmp('profile').doFocus = true;
-                                Ext.getCmp('newPassword').focus();
-                            }, 300);
-                        }
-                    }
-                }
-            },
-            {
-                id: 'retypePassword',
-                label: 'Retype Password',
-                listeners: {
-                    focus: function (field, e, eOpts) {
-                        if (Ext.getCmp('profile').doFocus) {
-                            Ext.getCmp('profile').doFocus = false;
-                        } else {
-                            //    Ext.getCmp('newPassword').focus();
-                            setTimeout(function () {
-                                Ext.getCmp('profile').doFocus = true;
-                                Ext.getCmp('retypePassword').focus();
-                            }, 300);
-                        }
-                    }
-                }
-            }]
-        },
-        {
-            xtype: 'panel',
-            html: '',
-            id: 'profileError',
-            cls: 'errorField',
-            width: '100%',
-            style: {
-                'text-align': 'center'
-            }
+            items: [
+                {
+                    xtype: 'passwordField',
+                    fieldId: 'passwordField',
+                    name: 'password' 
+                },
+                {
+                    xtype: 'passwordField',
+                    fieldId: 'rePassword',
+                    placeHolder: 'Retype Password',
+                    equalToField: 'passwordField' 
+                }]
         },
         {
             flex: 1,
-            xtype: 'panel',
-            html: '.'
+            xtype: 'panel'
         }, {
             margin: '0 0 10 0',
             xtype: 'basebutton',
@@ -128,15 +110,18 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
             }
         }
     ],
-    initialize: function (panel) {
-        var me = this;
-        me.down('#changePasswordFieldset').el.on('click', function () {
-            me.down('#newPasswordFieldset').el.toggle();
-        });
-
+     onActivate: function (newActiveItem, mainNavView, oldActiveItem, eOpts) {
+        var me = this;  
         var profileInfo = Global.getProfileInfo();
         me.down('#profileUsername').setValue(profileInfo.username);
         me.down('#profilePhone').setValue(profileInfo.phone);
         me.down('#profileEmail').setValue(profileInfo.email);
+        this.callParent(arguments);
+    },
+    initialize: function (panel) {
+        var me = this; 
+        me.down('#changePasswordFieldset').el.on('click', function () {
+            me.down('#newPasswordFieldset').el.toggle();
+        }); 
     }
 }); 

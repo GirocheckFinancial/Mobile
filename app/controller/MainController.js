@@ -7,22 +7,19 @@
 Ext.define('GirocheckMobile.controller.MainController', {
     extend: 'Ext.app.ViewController',
     alternateClassName: 'AuthController',
-    alias: 'controller.mainController', 
+    alias: 'controller.mainController',
     goTo: function (btn, b, c) {
-        Ext.Viewport.hideMenu('left'); 
+        Ext.Viewport.hideMenu('left');
         if (btn.config.page) {
             Ext.getCmp('mainNavView').push(Ext.create(btn.config.page));
         }
     },
-    doReplaceCard: function (btn) { 
+    doReplaceCard: function (btn) {
         var me = btn.up(),
             valid = true,
             newCardNumber = me.down('#newCard').getValue();
 
-        if (!newCardNumber || newCardNumber.lenght < 10 ){  
-            Ext.toast("Invalid Card Number", 4000);
-            return;
-        }
+        if(!me.validate())return;
 
         var obj = {
             clientId: Global.getClientId(),
@@ -40,25 +37,17 @@ Ext.define('GirocheckMobile.controller.MainController', {
         });
     },
     doUpdateProfile: function (btn) {
-        var me = btn.up(),
-            valid = true,
-            profilePhone = me.down('#profilePhone').getValue(),
-            profileEmail = me.down('#profileEmail').getValue(),
-            profileUsername = me.down('#profileUsername').getValue(),
-            retypePassword = me.down('#retypePassword').getValue(),
-            newPassword = me.down('#newPassword').getValue()
-        profileError = me.down('#profileError');
+        var view = btn.up();
 
-        var obj = {
-            username: me.down('#profileUsername').getValue(),
-            email: me.down('#profileEmail').getValue(),
-            phone: me.down('#profilePhone').getValue(),
-            password: me.down('#newPassword').getValue(),
-            retypePassword: me.down('#retypePassword').getValue(),
-            clientId: Global.getClientId()
+        if (!view.validate()) return;
+
+        var obj = view.getValues();
+        obj['clientId'] = Global.getClientId();
+ 
+        if (!Ext.getCmp('newPasswordFieldset').el.isVisible()) {
+            delete obj.password;
+            delete obj.rePassword;
         }
-
-        if (!this.validateProfile(obj, profileError)) return;
 
         Request.load({
             url: 'gen/updateProfile',
@@ -66,39 +55,11 @@ Ext.define('GirocheckMobile.controller.MainController', {
             jsonData: obj,
             success: function (response) {
                 Ext.getCmp('mainNavView').pop();
-                Ext.toast('Your profile has been updated', 4000);
+                Ext.toast('Your profile has been updated', 4000); 
             }
         });
-    },
-    validateProfile: function (obj, profileError) {
-        var valid = true;
-
-        if (!obj.phone || obj.phone < 10) {
-            profileError.setHtml('Invalid Phone Number');
-            valid = false;
-        }
-
-        if (!obj.email || obj.email.indexOf('@') < 0 || obj.email.indexOf('.') < 0) {
-            profileError.setHtml('Invalid Email Address');
-            valid = false;
-        }
-
-        if (!obj.username) {
-            profileError.setHtml('Invalid Username');
-            valid = false;
-        }
-
-        if (Ext.getCmp('newPasswordFieldset').el.isVisible()) {
-            if (!obj.password || !obj.retypePassword || obj.password !== obj.retypePassword) {
-                profileError.setHtml('Invalid Password');
-                valid = false;
-            }
-        }
-
-        if (valid) {
-            profileError.setHtml('');
-        }
-        return valid;
+        
+        Global.setProfileInfo(obj);
     },
     onLogout: function () {
         Ext.Viewport.hideMenu('left');

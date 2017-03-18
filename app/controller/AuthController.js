@@ -31,64 +31,29 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             view = me.getView();
         view.push(Ext.create('GirocheckMobile.view.auth.Register'));
         //TODO move this to a method in the navigation bar
-        view.toggleToolBar(true);
+        // view.toggleToolBar(true);
         // view.getNavigationBar().setStyle({ display: 'block' });
     },
 
     doRegister: function (registerButton) {
         var view = registerButton.up(),
-            registerError = view.down('#registerError'),
-            phone = view.down('#phone').getValue(),
-            email = view.down('#email').getValue(),
-            ssn = view.down('#ssn').getValue(),
-            user = view.down('#user').getValue(),
-            password = view.down('#password').getValue(),
-            rePassword = view.down('#rePassword').getValue(), 
-            card = view.down('#card').getValue(),
-            valid = true;
+            acceptTerms = view.down('#acceptTerms');
 
-        var obj = {
-            username: user,
-            password: password,
-            ssn: ssn,
-            email: email,
-            phone: phone,
-            cardNumber: card
-        };
+        if (!acceptTerms.getValue()) {
+            Ext.create('Ext.tip.ToolTip', {
+                target: me.el,
+                anchor: 'bottom',
+                html:'You need to accept our Terms and Conditions'
+            }).show();
+            return;
+        }
 
-         for (i in obj) { valid = valid && (obj[i]); }
-
-         if(!valid){ 
-             Ext.toast( 'Required Field', 4000);
-             return;
-         }else{
-            if(password !== rePassword){
-               Ext.toast( "Password fields don't match", 4000);
-               return;
-            }
-
-             if(password.length < 8){
-                Ext.toast( "Password must contain at least 8 characters", 4000); 
-                 return;
-            }
-
-
-            if(!/^(?=.*[a-zA-Z])(?=.*\d).+$/.test(password)){
-               Ext.toast( "Password must contain letters and numbers", 4000);
-                 return;
-            }
-
-             if(!/^([0-9]{15,})$/.test(card)){
-               Ext.toast( "Invalid card number", 4000);
-                return;
-            }  
-         } 
- 
+        if (view.validate()) return;
 
         Request.load({
             url: 'gen/register',
             method: 'POST',
-            jsonData: obj,
+            jsonData: view.getValues(),
             success: Util.afterLogin
         });
     },
@@ -135,15 +100,16 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             Ext.getCmp('forgotPassword').items.items[i].el.toggle();
         }
         Ext.getCmp('fpAcceptButton').setText('Accept');
-    },  
-    onAcceptTerms: function (me, newValue, oldValue, eOpts) { 
-        var view = me.up().up();
-       if(me.getValue() == "true"){
-           view.down('#registerAcceptButton').removeCls('mobileapp-button-disabled');
-           view.down('#registerAcceptButton').addCls('mobileapp-button');
-       }else{
-           view.down('#registerAcceptButton').removeCls('mobileapp-button');
-           view.down('#registerAcceptButton').addCls('mobileapp-button-disabled');
-       }
+    },
+    onAcceptTerms: function (me, newValue, oldValue, eOpts) {
+        var view = me.up().up(),
+            btn = view.down('#registerAcceptButton');
+        if (me.getValue()) {
+            btn.removeCls('mobileapp-button-disabled');
+            btn.addCls('mobileapp-button');
+        } else {
+            btn.removeCls('mobileapp-button');
+            btn.addCls('mobileapp-button-disabled');
+        }
     }
 });

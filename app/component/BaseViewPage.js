@@ -14,7 +14,7 @@ Ext.define('GirocheckMobile.component.BaseViewPage', {
         }
     },
     onActivate: function (newActiveItem, mainNavView, oldActiveItem, eOpts) {
-        var me = this; 
+        var me = this;  
         Ext.getCmp('mainNavView').getNavigationBar().down('#leftMenu').hide(); 
         Ext.getCmp('mainNavView').getNavigationBar().down('#searchButton').hide(); 
         Ext.getCmp('mainNavView').getNavigationBar().down('#more-options').hide(); 

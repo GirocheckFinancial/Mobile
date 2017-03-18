@@ -34,7 +34,7 @@ Ext.define('GirocheckMobile.util.Utils', {
             var y = date.substring(0,4);
             var m = date.substring(4,6);
             var d = date.substring(6);
-            return m + '/' + '/' + d + '/' + y;
+            return m + '/' + d + '/' + y;
         },
          formatAmount: function (amount) {
             var str = "";

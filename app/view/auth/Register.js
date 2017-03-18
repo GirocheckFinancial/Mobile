@@ -6,7 +6,8 @@ Ext.define('GirocheckMobile.view.auth.Register', {
         'GirocheckMobile.field.PasswordField',
         'Ext.field.Checkbox',
         'GirocheckMobile.field.CheckBoxField',
-        'GirocheckMobile.view.auth.TermsAndConditions'
+        'GirocheckMobile.view.auth.TermsAndConditions',
+        'GirocheckMobile.field.BaseTextField'
     ],
     config: {
         title: 'Register',
@@ -21,57 +22,74 @@ Ext.define('GirocheckMobile.view.auth.Register', {
             xtype: 'fieldset',
             margin: '5 0 0 0',
             defaults: {
-                xtype: 'textfield',
-                margin: '2'
+                xtype: 'textfield'
             },
         },
         items: [
             {
                 title: 'Credentials',
-                items: [{
-                    id: 'user',
-                    name: 'user',
-                    placeHolder: 'Username'
-                }, {
-                    id: 'password',
-                    name: 'password',
-                    placeHolder: 'Password',
-                    inputType: 'password'
-                }, {
-                    id: 'rePassword',
-                    name: 'rePassword',
-                    placeHolder: 'Retype Password',
-                    inputType: 'password'
-                }]
+                items: [
+                    {
+                        xtype: 'baseTextField',
+                        placeHolder: 'Username',
+                        fieldId: 'user',
+                        name: 'username',
+                        hint: 'Enter your Username',
+                        minLength: 6,
+                        regExp: /^[a-zA-Z0-9]*$/,
+                        regExtErrorMsg: 'Username must to contain letters and numbers and have at least 6 characters.'
+                    },
+                    {
+                        xtype: 'passwordField',
+                        fieldId: 'password' 
+                    },
+                    {
+                        xtype: 'passwordField',
+                        fieldId: 'rePassword',
+                        placeHolder: 'Retype Password',
+                        equalToField: 'password' 
+                    }]
             },
             {
                 title: 'Personal Information',
-                items: [{
-                    id: 'phone',
-                    name: 'phone',
-                    placeHolder: 'Telephone',
-                    value: '1234567890'
-                },
-                {
-                    id: 'email',
-                    name: 'email',
-                    placeHolder: 'Email',
-                    value: 'roberto.rodriguez@girocheck.com'
-                },
-                {
-                    id: 'ssn',
-                    name: 'ssn',
-                    placeHolder: 'SSN',
-                    value: '201120388'
-                }]
+                items: [
+                    {
+                        xtype: 'baseTextField',
+                        fieldId: 'phone',
+                        placeHolder: 'Telephone',
+                        hint: 'Enter telephone number used when registering <br> VoltCash, include country code <br> (1 if in USA) with no dashes.',
+                        minLength: 10,
+                        regExp: /^[0-9]*$/,
+                        regExtErrorMsg: 'Enter just digits' 
+                    },
+                    {
+                        xtype: 'baseTextField',
+                        fieldId: 'email',
+                        placeHolder: 'Email',
+                        hint: 'Enter your e-mail address. <br> This will be used for password recovery',
+                        regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        regExtErrorMsg: 'Invalid email format' 
+                    },
+                    {
+                        xtype: 'baseTextField',
+                        fieldId: 'ssn',
+                        placeHolder: 'SSN',
+                        hint: 'Enter your Social Security Number or ITIN <br> used when registering VoltCash.',
+                        regExp: /^[0-9]*$/,
+                        regExtErrorMsg: 'Enter just digits' 
+                    }]
             },
             {
                 title: 'Credit Card',
                 items: [{
-                    id: 'card',
-                    name: 'card',
+                    xtype: 'baseTextField',
+                    fieldId: 'card',
+                    name: 'cardNumber',
+                    inputType: 'password',
+                    regExp: /^[0-9]{16}$/,
+                    regExtErrorMsg: 'Credit Card number must to contain 16 digits',
                     placeHolder: 'Card Number',
-                    value: '5448353884071541',
+                    hint: 'Please enter your VoltCash Card number',
                     listeners: {
                         focus: function (field, e, eOpts) {
                             if (Ext.getCmp('register').doFocus) {
@@ -88,63 +106,59 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                 }]
             },
             {
-                xtype:'panel',
-                layout:{
-                    type:'hbox',
-                    pack:'left'
+                xtype: 'panel',
+                layout: {
+                    type: 'hbox',
+                    pack: 'left'
                 },
                 padding: '10px 0px 10px 15px',
-                items:[
+                items: [
                     {
                         xtype: 'checkBoxField',
-                        id:'acceptTerms',
+                        id: 'acceptTerms',
                         labelAlign: 'right',
-                        label: 'I have read the',
-                        listeners:{
-                            change:'onAcceptTerms'
+                        label: 'I accept the',
+                        listeners: {
+                            change: 'onAcceptTerms'
                         }
                     },
                     {
-                        xtype:'panel',
-                        id:'readTerms',
-                        html:'<span id="readTermsLink">Terms and Conditions</span>',
-                        align:'left',
-                        style:{'text-decoration':'underline', 'padding-top':'3px'},
-                        listeners:{
-                            'onReadTerms':function(){
-                                debugger;
-                            }
-                        }
+                        xtype: 'panel',
+                        id: 'readTerms',
+                        html: '<span id="readTermsLink">Terms and Conditions</span>',
+                        align: 'left',
+                        style: { 'text-decoration': 'underline', 'padding-top': '5px' }
                     }
                 ]
             },
-            
+
             {
                 flex: 1,
                 xtype: 'panel',
                 html: '.'
-            }, 
+            },
             {
                 id: 'registerAcceptButton',
                 margin: '0 0 10 0',
                 xtype: 'basebutton',
-                cls:'mobileapp-button-disabled',
+                cls: 'mobileapp-button-disabled',
                 text: 'Register',
                 iconCls: 'pictos pictos-check2',
-                // hidden:true,
+                qtip: "This is a tip",
                 listeners: {
-                    tap: 'doRegister'
+                    tap: 'doRegister' 
                 }
-            } 
+            }
 
-        ] 
+        ]
     },
-    listeners:{
-        activate:function(){
-           document.getElementById('readTermsLink').addEventListener('click',
-            function(e, b,c){
-               Ext.getCmp('authTabPanel').push(Ext.create('GirocheckMobile.view.auth.TermsAndConditions')); 
-        })
+    listeners: {
+        activate: function () {
+            document.getElementById('readTermsLink').addEventListener('click',
+                function (e, b, c) {
+                    Ext.getCmp('authTabPanel').push(Ext.create('GirocheckMobile.view.auth.TermsAndConditions'));
+                });
+            this.up().toggleToolBar(true);
         }
-    } 
+    }
 });

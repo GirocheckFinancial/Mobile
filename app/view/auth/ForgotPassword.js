@@ -34,13 +34,11 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 items: [{
                     id: 'fpCard',
                     name: 'cardNumber',
-                    placeHolder: 'Credit Card Number',
-                    value: '1111111111111111'
+                    placeHolder: 'Credit Card Number' 
                 }, {
                     id: 'maskSSN',
                     name: 'maskSSN',
-                    placeHolder: 'Las 4 digits of the SSN',
-                    value: '0388'
+                    placeHolder: 'Las 4 digits of the SSN' 
                 }]
             },
             {

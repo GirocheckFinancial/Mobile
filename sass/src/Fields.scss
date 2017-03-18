@@ -86,8 +86,11 @@
       padding-left: 6px; 
   }
 
-    // .x-checkboxfield .x-label-el .x-label-text-el{
-    //     text-decoration: underline;
-    // }
-
-  
+.hint {
+    background-color: #023159;
+    color:white;
+    font-weight: bold;
+    padding: 1px 5px 0px 5px;
+    margin-left: 4px;
+    border-radius: 50%;
+}
