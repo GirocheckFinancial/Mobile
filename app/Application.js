@@ -28,7 +28,7 @@ Ext.define('GirocheckMobile.Application', {
         //         Global.setHost(response.responseText);  
         //         Ext.toast('Connecting to:' + Global.getHost(), 4000); 
         //     }
-        // });
+        // }); 
     },
 
     onAppUpdate: function () {

@@ -47,7 +47,8 @@ Ext.define('GirocheckMobile.component.PeriodPicker', {
                         xtype:'button',
                         itemId:'periodPickerAccept',
                         text:'Accept',
-                        ui: 'confirm'
+                        ui: 'confirm',
+                        cls: 'mobileapp-button'
                      },{
                         xtype:'button',
                         itemId:'periodPickerCancel',

@@ -92,11 +92,22 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
             style: {
                 margin: '15px 15px 0px 15px',
                 color: 'grey',
-                'border-bottom': '1px solid #f0f0f0',
+             //   'border-bottom': '1px solid #f0f0f0',
                 'font-size': '15px',
+                'padding-bottom': '7px'
+            }
+        }, 
+        {
+            id:'dateRangeLabel',
+            html:'',
+            style: {
+                margin: '2px 15px 0px 15px',
+                color: 'gray',
+                'border-bottom': '1px solid #f0f0f0',
+                'font-size': '11px',
                 'padding-bottom': '10px'
             }
-        },
+        }, 
         {
             scrollable: true,
             flex: 1,
@@ -110,5 +121,11 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                 }
             }]
         }
-    ]
+    ],
+    listeners:{
+        activate:function(){
+            var me = this;
+            me.down('#dateRangeLabel').setHtml( Util.getDateRangeLabel() );
+        }
+    }
 });

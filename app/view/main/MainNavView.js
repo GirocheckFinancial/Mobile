@@ -70,7 +70,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     xtype: 'button',
                     id: 'more-options',
                     cls: 'bar-button-more',
-                    iconCls: 'fa fa-ellipsis-v',
+                  //  iconCls: 'fa fa-ellipsis-v',
                     align: 'right',
                     width: '30px',
                     style: {
@@ -98,7 +98,8 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                             values.page = 1;
                             values.start = 0;
                             this.down('txList').getStore().load();  //{ params: values }
-                        }
+                            Ext.getCmp('dateRangeLabel').setHtml( Util.getDateRangeLabel());
+                    }
 
                     }, scope: me
                 }

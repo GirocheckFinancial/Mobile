@@ -10,8 +10,7 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
     ],
     config: {
         loadingText: 'Performing search...<br>This may take up to 1 minute.',
-        emptyText: 'No results found.',
-        pageSize: 4,
+        emptyText: 'No results found.', 
         flex: 1,
         height: '100%',
         // infinite: true,
@@ -27,7 +26,7 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
             '<p class="itemDate">{[Util.formatDate(values.date)]}</p>' +
             '<table style="margin:4px 0px 4px 0px">' +
             '<tr><td style="width:100%"><p class="itemDesc">{description}</p></td>' +
-            '<td width="40px"><p class=<tpl if="amount &gt; 0">itemAmountPossitive<tpl else>itemAmountNegative</tpl>>{[Util.formatAmount(values.amount)]}</p></td></tr>' +
+            '<td width="40px"><p class=<tpl if="debitOrCredit == \'C\'">itemAmountPossitive<tpl else>itemAmountNegative</tpl>>{[Util.formatAmount(values.amount, values.debitOrCredit)]}</p></td></tr>' +
             '</div>' +
             '</div>'
         ),

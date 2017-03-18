@@ -5,14 +5,14 @@
  * and open the template in the editor.
  */
 Ext.define('GirocheckMobile.util.Utils', {
-    alternateClassName: 'Util', 
+    alternateClassName: 'Util',
     statics: {
         afterLogin: function (response) {
             if (response) {
                 Global.setLoginInfo(response);
-                Ext.getStore('txstore').load(); 
+                Ext.getStore('txstore').load();
                 var balance = response.balance;
-                
+
                 if (balance) {
                     if (balance.indexOf('.') > -1) {
                         var arrayBalance = balance.split('.');
@@ -28,23 +28,42 @@ Ext.define('GirocheckMobile.util.Utils', {
                 Ext.getCmp('authTabPanel').toggleToolBar(false);
             }
         },
-        formatDate:function(date){
-            if(!date)return "";
+        formatAmount: function (amount, debitOrCredit) { 
+            return (debitOrCredit == 'D' ? '-' : '+') + '$' + amount; 
+        },
+        formatDate: function (date) {   //  MM/dd/yyyy
+            if (!date) return "";
 
-            var y = date.substring(0,4);
-            var m = date.substring(4,6);
+            var y = date.substring(0, 4);
+            var m = date.substring(4, 6);
             var d = date.substring(6);
             return m + '/' + d + '/' + y;
         },
-         formatAmount: function (amount) {
-            var str = "";
-            if (amount < 0) {
-                str = "-$" + Math.abs(amount);
-            } else {
-                str = "+$" + amount;
+        formatOutputDate: function (d) {   ///yyyyMMdd
+            if (d) {
+                var y = d.getYear() % 1900 + 1900;
+                var m = d.getMonth() + 1;
+                m = m < 10 ? '0' + m : m;
+                var d = d.getDate();
+                d = d < 10 ? '0' + d : d;
+                return y + '' + m + '' + d
             }
-            return str;
-        } 
+        },
+        initializeDateRange: function () {
+            var me = this,
+                today = new Date(),
+                monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+            Global.setStartDate(me.formatOutputDate(monthAgo));
+            Global.setEndDate(me.formatOutputDate(today));
+        },
+        getDateRangeLabel: function(){ 
+            if(!Global.getStartDate()){
+                Util.initializeDateRange();
+            }
+
+            return 'From ' + this.formatDate( Global.getStartDate() ) + ' to ' +  this.formatDate( Global.getEndDate() );
+        }
     }
 });
 

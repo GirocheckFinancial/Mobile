@@ -4,33 +4,27 @@
  * and open the template in the editor.
  */
 Ext.define('GirocheckMobile.field.BaseDateField', {
-    // extend: 'Ext.field.DatePicker',
-    // xtype: 'baseDateField',  
-    // value: new Date(),
-    // picker: {
-    //     yearFrom: 2000
-    //     // slotOrder: ['day','month','year'],
-    // },
+    extend: 'Ext.field.DatePicker',
+    xtype: 'baseDateField',  
+    value: new Date(),
+    picker: {
+        yearFrom: 2000
+        // slotOrder: ['day','month','year'],
+    },
 
-    // config: {
-    //     label: 'Date',
-    //     name: 'date',
-    //     dateFormat: 'm/d/Y',
-    //     picker: {
-    //         yearFrom: 2000,
-    //         slotOrder: ['month','day','year'] 
-    //     }
-    // }, 
-    // getFecha: function () {
-    //     var d = this.getValue(); 
-    //     if(d){
-    //         var y = d.getYear() % 1900 + 1900;
-    //         var m = d.getMonth();
-    //         m = m < 10 ? '0' + m : m;
-    //         var d = d.getDate();
-    //         d = d < 10 ? '0' + d : d;
-    //         return  y + '' + m + '' + d
-    //     } 
-    // } 
+    config: {
+        label: 'Date',
+        name: 'date',
+        dateFormat: 'm/d/Y',
+        picker: {
+            yearFrom: 2000,
+            slotOrder: ['month','day','year'] 
+        }
+    }, 
+    getFecha: function () {
+        var d = this.getValue(); 
+
+        return Util.formatOutputDate(d); 
+    } 
 });
 

@@ -17,11 +17,14 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             userName = loginButton.up().up().down('#loginUser').getValue(),
             password = loginButton.up().up().down('#loginPassword').getValue();
 
+        if(!userName || !password)return;
+
         //http://69.42.101.181:8095/FrontMobile/webresources/v1/
         Request.load({
             url: 'auth/login',
-            method: 'POST',
-            jsonData: { 'username': userName, 'password': password },
+           params:'username=' + userName + '&password='+ password,
+            // method: 'POST',
+            // jsonData: { 'username': userName, 'password': password },
             success: Util.afterLogin
         });
     },

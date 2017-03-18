@@ -4,7 +4,7 @@ Ext.define('GirocheckMobile.store.TxStore', {
     autoLoad: true,
 
     //From Base Store
-    pageSize: 10,// 20,
+    pageSize:40,
     loadingMask: true,
     loadingMaskIgnoreURLs: null,
     loadingText: null,

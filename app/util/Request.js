@@ -8,6 +8,7 @@ Ext.define('GirocheckMobile.utils.Request', {
     alternateClassName: 'Request',
     singleton: true,
     autoAbort: false,
+  //  disableCaching:true,
     constructor: function (config) {
         var me = this;
         me.callParent(arguments);
@@ -59,6 +60,7 @@ Ext.define('GirocheckMobile.utils.Request', {
     },
     onRequestcomplete: function (conn, response, options, eOpts) {
         Loading.stop();
+        debugger;
         var responseAsJson = Ext.decode(response.responseText);
 
         if (responseAsJson.status == 100) {
