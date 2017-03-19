@@ -59,8 +59,7 @@ Ext.define('GirocheckMobile.utils.Request', {
         }
     },
     onRequestcomplete: function (conn, response, options, eOpts) {
-        Loading.stop();
-        debugger;
+        Loading.stop(); 
         var responseAsJson = Ext.decode(response.responseText);
 
         if (responseAsJson.status == 100) {

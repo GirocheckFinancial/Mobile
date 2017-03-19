@@ -16,28 +16,26 @@ Ext.define('GirocheckMobile.view.main.pages.ReplaceCard', {
     scrollable: true,
     requires: [
         'GirocheckMobile.controller.MainController',
-        'GirocheckMobile.field.BaseTextField'
+        'GirocheckMobile.field.BaseTextField',
+        'GirocheckMobile.field.CardField'
     ],
     controller: 'mainController',
     items: [
         {
             xtype: 'fieldset',
             margin: '20 0 0 0',
-            items: [ 
-            { 
-                xtype: 'baseTextField',
+            items: [
+                {
+                    xtype: 'cardField',
                     fieldId: 'newCard',
                     name: 'card',
-                    inputType: 'password',
-                    regExp: /^[0-9]{16}$/,
-                    regExtErrorMsg: 'Credit Card number must to contain 16 digits',
-                    placeHolder: 'New Card Number',
-                    hint: 'Please enter your new VoltCash Card number',}
+                    placeHolder: 'New Card Number'
+                }
             ]
         },
         {
             flex: 1,
-            xtype: 'panel' 
+            xtype: 'panel'
         }, {
             id: 'replaceCardAcceptButton',
             margin: '0 0 10 0',

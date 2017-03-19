@@ -8,8 +8,8 @@ Ext.define('GirocheckMobile.utils.Global', {
     singleton: true,
     alias: 'widget.global',
     config: {
-        host:'http://localhost:8085',
-        // host:'http://69.42.101.181:8085',
+      //  host:'http://localhost:8085',
+      //  host:'http://69.42.101.181:8085',
        //   host:'https://mobile.girocheck.net:8999',
         middleUrl: '/FrontMobile/',
         version: 'v1',
@@ -23,6 +23,14 @@ Ext.define('GirocheckMobile.utils.Global', {
     },
     constructor: function (config) {
         this.initConfig(config);
+    },
+    getHost:function(){
+      var h = 3;
+      switch(h){
+          case 1:return 'http://localhost:8085';
+          case 2:return 'http://69.42.101.181:8085';
+          case 3:return 'https://mobile.girocheck.net:8999';
+      }
     },
     geTxParams: function () {
         var me = this;

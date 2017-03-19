@@ -17,14 +17,14 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             userName = loginButton.up().up().down('#loginUser').getValue(),
             password = loginButton.up().up().down('#loginPassword').getValue();
 
-        if(!userName || !password)return;
+        if (!userName || !password) return;
 
         //http://69.42.101.181:8095/FrontMobile/webresources/v1/
         Request.load({
             url: 'auth/login',
-           params:'username=' + userName + '&password='+ password,
-            // method: 'POST',
-            // jsonData: { 'username': userName, 'password': password },
+            //params:'username=' + userName + '&password='+ password,
+            method: 'POST',
+            jsonData: { 'username': userName, 'password': password },
             success: Util.afterLogin
         });
     },
@@ -46,12 +46,12 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             Ext.create('Ext.tip.ToolTip', {
                 target: me.el,
                 anchor: 'bottom',
-                html:'You need to accept our Terms and Conditions'
+                html: 'You need to accept our Terms and Conditions'
             }).show();
             return;
         }
 
-        if (view.validate()) return;
+        if (!view.validate()) return;
 
         Request.load({
             url: 'gen/register',
@@ -74,22 +74,20 @@ Ext.define('GirocheckMobile.controller.AuthController', {
     doForgotPassword: function (btn) {
         var view = btn.up(),
             profileError = view.down('#profileError'),
+            codeField = view.down('#code'),
             firstTime = !view.down('#securityCodeFieldset').el.isVisible();
 
+        if (firstTime) {
+            if (!view.validate()) return;
+        } else {
+            var codeVal = codeField.getValue();
+            if (!codeVal || !/^[0-9]{6}$/.test(codeVal)) {
+                Ext.toast('Invalid Access Code', 3000);
+                return;
+            }
+        }
+
         var obj = view.getValues();
-
-        var valid = true;
-        for (i in obj) { valid = valid && (obj[i] || (firstTime && i === 'code')); }
-
-        profileError.setHtml(valid ? '' : 'Required Field');
-
-        if (valid && obj['maskSSN'].length != 4) {
-            profileError.setHtml('Please enter last 4 digits of your SSN');
-        }
-
-        if (valid && obj['code'] && obj['code'].length != 6) {
-            profileError.setHtml('Access Code should contains 6 digits');
-        }
 
         Request.load({
             url: 'gen/forgotPassword',

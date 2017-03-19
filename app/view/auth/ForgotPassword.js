@@ -1,8 +1,9 @@
 Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
     extend: 'GirocheckMobile.component.BasePage',
     xtype: 'forgotPassword',
-    requires: [ 
-        'GirocheckMobile.component.BaseButton'
+    requires: [
+        'GirocheckMobile.component.BaseButton',
+        'GirocheckMobile.field.CardField'
     ],
     config: {
         title: 'Forgot Password',
@@ -31,15 +32,20 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                     margin: '2',
                     width: '100%'
                 },
-                items: [{
-                    id: 'fpCard',
-                    name: 'cardNumber',
-                    placeHolder: 'Credit Card Number' 
-                }, {
-                    id: 'maskSSN',
-                    name: 'maskSSN',
-                    placeHolder: 'Las 4 digits of the SSN' 
-                }]
+                items: [
+                    {
+                        xtype: 'cardField',
+                        fieldId: 'fpCard',
+                        name: 'cardNumber'  
+                    }, 
+                    {
+                        xtype: 'baseTextField',
+                        fieldId: 'maskSSN',
+                        placeHolder: 'Las 4 digits of the SSN or ITIN',
+                        hint: 'Enter the last 4 digits of the <br> Social Security Number or ITIN <br> used when registering VoltCash.',
+                        regExp: /^[0-9]{4}$/,
+                        regExtErrorMsg: 'Enter 4 digits' 
+                    }]
             },
             {
                 xtype: 'fieldset',

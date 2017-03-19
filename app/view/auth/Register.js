@@ -7,7 +7,8 @@ Ext.define('GirocheckMobile.view.auth.Register', {
         'Ext.field.Checkbox',
         'GirocheckMobile.field.CheckBoxField',
         'GirocheckMobile.view.auth.TermsAndConditions',
-        'GirocheckMobile.field.BaseTextField'
+        'GirocheckMobile.field.BaseTextField',
+        'GirocheckMobile.field.CardField'
     ],
     config: {
         title: 'Register',
@@ -82,14 +83,9 @@ Ext.define('GirocheckMobile.view.auth.Register', {
             {
                 title: 'Credit Card',
                 items: [{
-                    xtype: 'baseTextField',
+                    xtype: 'cardField',
                     fieldId: 'card',
-                    name: 'cardNumber',
-                    inputType: 'password',
-                    regExp: /^[0-9]{16}$/,
-                    regExtErrorMsg: 'Credit Card number must to contain 16 digits',
-                    placeHolder: 'Card Number',
-                    hint: 'Please enter your VoltCash Card number',
+                    name: 'cardNumber', 
                     listeners: {
                         focus: function (field, e, eOpts) {
                             if (Ext.getCmp('register').doFocus) {
@@ -127,7 +123,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                         id: 'readTerms',
                         html: '<span id="readTermsLink">Terms and Conditions</span>',
                         align: 'left',
-                        style: { 'text-decoration': 'underline', 'padding-top': '5px' }
+                        style: { 'text-decoration': 'underline', 'padding-top': '6px' }
                     }
                 ]
             },
