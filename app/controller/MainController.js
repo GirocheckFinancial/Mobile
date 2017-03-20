@@ -6,7 +6,7 @@
  */
 Ext.define('GirocheckMobile.controller.MainController', {
     extend: 'Ext.app.ViewController',
-    alternateClassName: 'AuthController',
+    alternateClassName: 'MainController',
     alias: 'controller.mainController',
     goTo: function (btn, b, c) {
         Ext.Viewport.hideMenu('left');

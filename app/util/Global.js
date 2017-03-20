@@ -19,7 +19,8 @@ Ext.define('GirocheckMobile.utils.Global', {
         token: null,
         username: null,
         phone: null,
-        email: null
+        email: null,
+        registeredUsingAccessCode:null
     },
     constructor: function (config) {
         this.initConfig(config);

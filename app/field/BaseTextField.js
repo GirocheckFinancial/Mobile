@@ -76,17 +76,14 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
             textfield = me.down('textfield'),
             val = textfield.getValue();
 
+        if(!me.isVisible()){
+            return true;
+        }
+
         if (config.required && !val) {
             me.showTip('Required Field');
             return false;
-        } 
-        
-        if(config.equalToField){ //Just for password fields
-            if(me.up().down('#' + config.equalToField).getValue() != val){
-                 me.showTip("Password fields don't match");
-                 return false;
-            }
-        }
+        }  
 
         if (config.minLength && val.length < config.minLength) {
             me.showTip('Enter at least ' + config.minLength + ' characters');

@@ -93,8 +93,12 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             url: 'gen/forgotPassword',
             method: 'POST',
             jsonData: obj,
-            success: firstTime ? this.fpFirstTimeCallBack : Util.afterLogin
+            success: firstTime ? this.fpFirstTimeCallBack : this.fpSecondTimeCallBack
         });
+    },
+    fpSecondTimeCallBack:function(){
+        Global.setRegisteredUsingAccessCode(true);
+        Util.afterLogin();
     },
     fpFirstTimeCallBack: function (response) {
         for (var i = 0; i < 6; i++) {

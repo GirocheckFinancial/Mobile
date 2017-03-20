@@ -77,6 +77,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                         placeHolder: 'SSN / ITIN',
                         hint: 'Enter your Social Security Number or ITIN <br> used when registering VoltCash.',
                         regExp: /^[0-9]*$/,
+                        inputType: 'password',
                         regExtErrorMsg: 'Enter just digits' 
                     }]
             },

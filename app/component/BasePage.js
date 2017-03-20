@@ -25,7 +25,12 @@ Ext.define('GirocheckMobile.component.BasePage', {
          var me = this,
          obj = {};  
         me.query('textfield').forEach(function(field){
-            obj[field.getName()] = field.getValue();
+            var parent = field.up('baseTextField');
+            if(parent && parent.isVisible()){
+                obj[field.getName()] = field.getValue();
+            }else{
+                
+            }
         }); 
 
         return obj;

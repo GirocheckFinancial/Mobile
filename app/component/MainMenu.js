@@ -78,15 +78,11 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'spacer'
-            },
-
+            }, 
             {
-                height: 70,
-                // cls: 'menu-space',
-                html: '<a href="">Girocheck Financial Inc</a><br>',
-
-                cls: 'menu-lebel',
-
+                height: 70, 
+                html: '<a href="">Girocheck Financial Inc</a><br>', 
+                cls: 'menu-lebel' 
             }
         ]
     }

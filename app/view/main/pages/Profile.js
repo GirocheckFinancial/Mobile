@@ -84,7 +84,14 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
                 xtype: 'passwordField',
                 margin: '5'
             },
-            items: [
+            items: [ 
+                {
+                    xtype: 'passwordField',
+                    fieldId: 'oldPassword',
+                    placeHolder: 'Previous Password', 
+                    hint: 'Please enter your previous Password.',
+                    hidden:true
+                },
                 {
                     xtype: 'passwordField',
                     fieldId: 'passwordField',
@@ -116,6 +123,10 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
         me.down('#profileUsername').setValue(profileInfo.username);
         me.down('#profilePhone').setValue(profileInfo.phone);
         me.down('#profileEmail').setValue(profileInfo.email);
+
+        if(!Global.getRegisteredUsingAccessCode()){
+            me.down('oldPassword').show();
+        }
         this.callParent(arguments);
     },
     initialize: function (panel) {
