@@ -12,26 +12,23 @@ Ext.define('GirocheckMobile.component.BasePage', {
         me.titleOrg = null;
         me.callParent(arguments);
     },
-    validate:function(){
+    validate: function () {
         var me = this,
-        valid = true; 
- 
-        me.query('baseTextField').forEach(function(field){
+            valid = true;
+
+        me.query('baseTextField').forEach(function (field) {
             valid = valid && field.validate();
-        }); 
+        });
         return valid;
     },
-    getValues:function(){
-         var me = this,
-         obj = {};  
-        me.query('textfield').forEach(function(field){
-            var parent = field.up('baseTextField');
-            if(parent && parent.isVisible()){
+    getValues: function () {
+        var me = this,
+            obj = {};
+        me.query('textfield').forEach(function (field) {
+            if (field.isVisible()) {
                 obj[field.getName()] = field.getValue();
-            }else{
-                
             }
-        }); 
+        });
 
         return obj;
     }

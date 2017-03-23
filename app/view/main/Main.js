@@ -31,9 +31,7 @@ Ext.define('GirocheckMobile.view.main.Main', {
             },
             {
                 xtype: 'mainNavView'
-            },
-            
-
+            } 
         ]
     }
 });

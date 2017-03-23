@@ -7,29 +7,31 @@
 Ext.define('GirocheckMobile.util.Utils', {
     alternateClassName: 'Util',
     statics: {
-        afterLogin: function (response) {
+        afterLogin: function (response) { 
             if (response) {
                 Global.setLoginInfo(response);
-                Ext.getStore('txstore').load();
-                var balance = response.balance;
-
-                if (balance) {
-                    if (balance.indexOf('.') > -1) {
-                        var arrayBalance = balance.split('.');
-                        Ext.getCmp('balanceAmount').setHtml(arrayBalance[0]);
-
-                        var cents = arrayBalance[1].length == 1 ? arrayBalance[1] + '0' : arrayBalance[1];
-                        Ext.getCmp('balanceCents').setHtml(cents);
-                    }
-                }
-                Ext.getCmp('main').setActiveItem(Ext.getCmp('mainNavView'));
-                Ext.getCmp('authTabPanel').pop();
-                Static.updateMainManuName(response.clientName);
-                Ext.getCmp('authTabPanel').toggleToolBar(false);
             }
+
+            Ext.getStore('txstore').load();
+            var balance = Global.getBalance();
+
+            if (balance) {
+                if (balance.indexOf('.') > -1) {
+                    var arrayBalance = balance.split('.');
+                    Ext.getCmp('balanceAmount').setHtml(arrayBalance[0]);
+
+                    var cents = arrayBalance[1].length == 1 ? arrayBalance[1] + '0' : arrayBalance[1];
+                    Ext.getCmp('balanceCents').setHtml(cents);
+                }
+            }
+            Ext.getCmp('main').setActiveItem(Ext.getCmp('mainNavView'));
+            Ext.getCmp('authTabPanel').pop();
+            Static.updateMainManuName(Global.getClientName());
+            Ext.getCmp('authTabPanel').toggleToolBar(false);
+
         },
-        formatAmount: function (amount, debitOrCredit) { 
-            return (debitOrCredit == 'D' ? '-' : '+') + '$' + amount; 
+        formatAmount: function (amount, debitOrCredit) {
+            return (debitOrCredit == 'D' ? '-' : '+') + '$' + amount;
         },
         formatDate: function (date) {   //  MM/dd/yyyy
             if (!date) return "";
@@ -57,12 +59,12 @@ Ext.define('GirocheckMobile.util.Utils', {
             Global.setStartDate(me.formatOutputDate(monthAgo));
             Global.setEndDate(me.formatOutputDate(today));
         },
-        getDateRangeLabel: function(){ 
-            if(!Global.getStartDate()){
+        getDateRangeLabel: function () {
+            if (!Global.getStartDate()) {
                 Util.initializeDateRange();
             }
 
-            return 'From ' + this.formatDate( Global.getStartDate() ) + ' to ' +  this.formatDate( Global.getEndDate() );
+            return 'From ' + this.formatDate(Global.getStartDate()) + ' to ' + this.formatDate(Global.getEndDate());
         }
     }
 });

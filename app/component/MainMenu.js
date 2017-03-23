@@ -62,8 +62,18 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 cls: ['menu-button', 'menu-button-top', 'menu-button-header'],
                 listeners: {
                     tap: 'goTo'
-                }
-
+                } 
+            },
+            {
+                xtype: 'button',
+                text: 'Legal',
+                iconCls: 'fa fa-angle-right',
+                iconAlign: 'right',
+                page:'GirocheckMobile.view.auth.TermsAndConditions',
+                cls: ['menu-button-bottom'],
+                listeners: {
+                    tap: 'goTo'
+                },
             },
             {
                 xtype: 'button',
@@ -78,11 +88,11 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'spacer'
-            }, 
+            },
             {
-                height: 70, 
-                html: '<a href="">Girocheck Financial Inc</a><br>', 
-                cls: 'menu-lebel' 
+                height: 70,
+                html: '<a href="">Girocheck Financial Inc</a><br>',
+                cls: 'menu-lebel'
             }
         ]
     }

@@ -41,7 +41,7 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                                 align: 'center'
                             },
                             style: {
-                                'margin-top': '26px'
+                                'margin-top': '24px'
                             },
                             items: [
                                 {

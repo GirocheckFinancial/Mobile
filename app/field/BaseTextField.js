@@ -14,8 +14,8 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
         regExp: null,
         regExtErrorMsg: null,
         minLength: null,
-        equalToField:null,
-        value:null
+        equalToField: null,
+        value: null
     },
     initialize: function () {
         var me = this,
@@ -70,20 +70,20 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
             html: text || me.config.hint
         });
     },
-    validate: function () { 
+    validate: function () {
         var me = this,
             config = me.config,
             textfield = me.down('textfield'),
             val = textfield.getValue();
 
-        if(!me.isVisible()){
+        if (!me.isVisible()) {
             return true;
         }
 
         if (config.required && !val) {
             me.showTip('Required Field');
             return false;
-        }  
+        }
 
         if (config.minLength && val.length < config.minLength) {
             me.showTip('Enter at least ' + config.minLength + ' characters');
@@ -93,7 +93,16 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
         if (config.regExp && !config.regExp.test(val)) {
             me.showTip(config.regExtErrorMsg || config.hint);
             return false;
-        }  
+        }
         return true;
+    },
+    getValue: function () {
+        var me = this,
+            field = me.down('textfield');
+
+        var obj = {};
+        obj[field.name] = field.getValue();
+
+        return obj;
     }
 });

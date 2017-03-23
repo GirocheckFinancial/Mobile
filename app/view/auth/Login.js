@@ -87,8 +87,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                     flex: 1
                                 }
                             ]
-                        },
-
+                        }, 
                         {
                             xtype: 'container',
                             margin: '20 0 0 0',

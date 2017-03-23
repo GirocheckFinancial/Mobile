@@ -8,7 +8,8 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         'GirocheckMobile.controller.MainController',
         'GirocheckMobile.view.main.pages.ReplaceCard',
         'GirocheckMobile.view.main.pages.FAQ',
-        'GirocheckMobile.view.main.pages.Contact'
+        'GirocheckMobile.view.main.pages.Contact',
+        'GirocheckMobile.view.auth.TermsAndConditions'
     ],
     controller: 'mainController',
     initialize: function () {

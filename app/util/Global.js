@@ -20,7 +20,8 @@ Ext.define('GirocheckMobile.utils.Global', {
         username: null,
         phone: null,
         email: null,
-        registeredUsingAccessCode:null
+        balance:null,
+        clientName:null
     },
     constructor: function (config) {
         this.initConfig(config);
@@ -48,6 +49,8 @@ Ext.define('GirocheckMobile.utils.Global', {
         me.setEmail(response.clientEmail);
         me.setPhone(response.clientPhone);
         me.setUsername(response.mobileClientUserName);
+        me.setBalance(response.balance);
+        me.setClientName(response.clientName);
     },
     getLoginInfo: function (clientId, token) {
         var me = this;

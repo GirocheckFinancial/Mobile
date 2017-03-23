@@ -27,8 +27,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 xtype: 'fieldset',
                 margin: '5 0 0 0',
                 title: '',
-                defaults: {
-                    xtype: 'textfield',
+                defaults: { 
                     margin: '2',
                     width: '100%'
                 },
@@ -36,7 +35,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                     {
                         xtype: 'cardField',
                         fieldId: 'fpCard',
-                        name: 'cardNumber'  
+                        name: 'cardNumber' 
                     }, 
                     {
                         xtype: 'baseTextField',
@@ -91,6 +90,29 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                     margin: '2',
                     width: '100%'
                 }]
+            },
+             {
+                xtype: 'fieldset',
+                id:'resetPasswordFieldset',
+                title:"Reset Password",
+                hidden: true,
+                margin: '5 0 0 0', 
+                defaults: {
+                    xtype: 'textfield',
+                    margin: '2',
+                    width: '100%'
+                },
+                items: [
+                    {
+                        xtype: 'passwordField',
+                        fieldId: 'fpPassword' 
+                    },
+                    {
+                        xtype: 'passwordField',
+                        fieldId: 'fpRePassword',
+                        placeHolder: 'Retype Password',
+                        equalToField: 'fpPassword' 
+                    }]
             },
             {
                 flex: 1,

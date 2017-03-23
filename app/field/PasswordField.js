@@ -9,7 +9,11 @@ Ext.define('GirocheckMobile.field.PasswordField', {
         hint: 'Password must to contain at least one <br>UpperCase letter and one number <br> And be at least 8 characters long'
     },
     validate: function () {
-        var me = this;
+         var me = this,
+            config = me.config,
+            textfield = me.down('textfield'),
+            val = textfield.getValue();
+
         if (me.up('#newPasswordFieldset') && !me.up('#newPasswordFieldset').el.isVisible()) {
             return true;
         }

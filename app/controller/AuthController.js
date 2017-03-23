@@ -75,10 +75,18 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         var view = btn.up(),
             profileError = view.down('#profileError'),
             codeField = view.down('#code'),
-            firstTime = !view.down('#securityCodeFieldset').el.isVisible();
+            fpCard = view.down('#fpCard'),
+            maskSSN = view.down('#maskSSN'),
+            firstTime = !view.down('#securityCodeFieldset').el.isVisible(),
+            isResetPassword = view.down('#resetPasswordFieldset').el.isVisible();
+
+        if (isResetPassword) {
+            this.doResetPassword(view);
+            return;
+        } 
 
         if (firstTime) {
-            if (!view.validate()) return;
+            if (!fpCard.up('baseTextField').validate() || !maskSSN.up('baseTextField').validate()) return;
         } else {
             var codeVal = codeField.getValue();
             if (!codeVal || !/^[0-9]{6}$/.test(codeVal)) {
@@ -96,15 +104,41 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             success: firstTime ? this.fpFirstTimeCallBack : this.fpSecondTimeCallBack
         });
     },
-    fpSecondTimeCallBack:function(){
-        Global.setRegisteredUsingAccessCode(true);
-        Util.afterLogin();
+    doResetPassword: function (view) { 
+        var fpPassword = view.down('#fpPassword'),
+            fpRePassword = view.down('#fpRePassword');
+
+        if (!fpPassword.up('baseTextField').validate() || !fpRePassword.up('baseTextField').validate()) return;
+
+        var obj = {
+            clientId:Global.getClientId(),
+            newPassword:fpPassword.getValue()
+        }
+
+        Request.load({
+            url: 'auth/resetPassword',
+            method: 'POST',
+            jsonData: obj,
+            success: Util.afterLogin
+        });
     },
-    fpFirstTimeCallBack: function (response) {
-        for (var i = 0; i < 6; i++) {
+    fpFirstTimeCallBack: function (response) { 
+        for (var i = 0; i < 5; i++) {
             Ext.getCmp('forgotPassword').items.items[i].el.toggle();
         }
         Ext.getCmp('fpAcceptButton').setText('Accept');
+    },
+    fpSecondTimeCallBack: function (response) { 
+        for (var i = 0; i < 5; i++) {
+            Ext.getCmp('forgotPassword').items.items[i].el.hide();
+        }
+        Ext.getCmp('resetPasswordFieldset').show();
+        Global.setLoginInfo(response);
+
+        var forgotPasswordView = Ext.getCmp('forgotPassword');
+        if(forgotPasswordView.setTitle){
+            forgotPasswordView.setTitle('Reset Password');
+        }
     },
     onAcceptTerms: function (me, newValue, oldValue, eOpts) {
         var view = me.up().up(),
