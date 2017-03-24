@@ -47,6 +47,7 @@ Ext.define('GirocheckMobile.controller.MainController', {
         if (!Ext.getCmp('newPasswordFieldset').el.isVisible()) {
             delete obj.password;
             delete obj.rePassword;
+            delete obj.oldPassword; 
         }
 
         Request.load({

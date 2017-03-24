@@ -58,7 +58,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                         xtype: 'baseTextField',
                         fieldId: 'phone',
                         placeHolder: 'Telephone',
-                        hint: 'Enter telephone number used when registering <br> VoltCash, include country code <br> (1 if in USA) with no dashes.',
+                        hint: 'Enter telephone number used when registering <br> VoltCash, with no dashes.',
                         minLength: 10,
                         regExp: /^[0-9]*$/,
                         regExtErrorMsg: 'Enter just digits' 

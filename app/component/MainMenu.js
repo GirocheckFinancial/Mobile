@@ -70,7 +70,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 page:'GirocheckMobile.view.auth.TermsAndConditions',
-                cls: ['menu-button-bottom'],
+                cls: ['menu-button'],
                 listeners: {
                     tap: 'goTo'
                 },

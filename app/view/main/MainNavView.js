@@ -34,7 +34,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         navigationBar: {
             height: '40px',
             style: {
-                'background-color': '#023159'
+                'background-color': '#201747', /* '#023159' */
             },
             items: [
                 {
@@ -45,7 +45,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     cls: 'bar-bottom',
                     iconCls: 'pictos pictos-list',
                     style: {
-                        'background-color': '#023159'
+                        'background-color': '#201747'
                     },
                     handler: function () {
                         if (Ext.Viewport.getMenus().left.isHidden()) {
@@ -63,7 +63,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     iconCls: 'pictos pictos-search',
                     align: 'right',
                     style: {
-                        'background-color': '#023159',
+                      //  'background-color': '#023159',
                         'margin-right': '10px'
                     }
                 },

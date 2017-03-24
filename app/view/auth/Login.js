@@ -24,7 +24,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                     xtype: 'image',
                     src: 'resources/images/vc-logo.jpg',
                     //  margin: '20 0 40',
-                    height: 100
+                    height:60
                 }]
             }, 
             {
@@ -58,7 +58,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                 inputType: 'password',
                                 id: 'loginPassword',
                                 name: 'password',
-                                placeHolder: 'Password' 
+                                placeHolder: 'Password'  
                             }]
                         }, {
                             xtype: 'panel',

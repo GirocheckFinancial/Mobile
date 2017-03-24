@@ -15,7 +15,8 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
         regExtErrorMsg: null,
         minLength: null,
         equalToField: null,
-        value: null
+        value: null,
+        readOnly: null
     },
     initialize: function () {
         var me = this,
@@ -28,7 +29,8 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
             placeHolder: config.placeHolder,
             inputType: config.inputType || 'text',
             flex: 1,
-            value: config.value
+            value: config.value,
+            readOnly: config.readOnly || false
         });
 
         if (config.hint) {

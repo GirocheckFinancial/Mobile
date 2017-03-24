@@ -22,7 +22,7 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
             height: '40px',
             defaultBackButtonText: '',
             style: {
-                'background-color': '#023159',
+                'background-color': '#201747',
                 'color': 'white',
                 display: 'none'
             },

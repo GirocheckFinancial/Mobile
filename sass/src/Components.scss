@@ -60,17 +60,17 @@
 }
 
 .registerButton{ 
-        background-image: -webkit-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
-        background-image: -moz-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
-        background-image: -o-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important;
-        background-image: -ms-linear-gradient(top, #000000, #0d1a00, #001a1a, #0d001a)!important; 
+        background-image: -webkit-linear-gradient(top, #201747 50%, #201747, #201747, #201747 50%)!important;
+        background-image: -moz-linear-gradient(top, #201747 50%, #201747, #201747, #201747 50%)!important;
+        background-image: -o-linear-gradient(top, #201747 50%, #201747, #201747, #201747 50%)!important;
+        background-image: -ms-linear-gradient(top, #201747 50%, #201747, #201747, #201747 50%)!important;
  
             .x-button-label{
-                color:#efd013;
+                color:#f3e500;
                 font: normal 15px/ 18px Helvetica, sans-serif;  
             }
             .x-button-icon{
-                color: #efd013;
+                color: #f3e500;
                 font-size: 1.2em; 
             }
 }
@@ -91,7 +91,7 @@
 
 //Toolbar
 .x-toolbar{
-     background-color: '#023159';
+     background-color: '#201747';
      color:white!important;
     .x-body{
         height:100%!important;
@@ -112,7 +112,7 @@
 }
 
 .x-button-back span {
-color: #023159;
+color: #201747;
 }
 
 //This was causing issue in the mobile
@@ -268,14 +268,14 @@ color: #023159;
 //--------------- PERIOD PICKER ---------
 
 .periodPicker{
-    background-color:#023159;
+    background-color:#201747;
 
     .periodPickerHeader{
          height: 35px !important;
         color:#fff; 
         text-align: center; 
         font-size: 1.1em;
-        background-color:#023159;
+        background-color:#201747;
     }
 
     .periodPickerFieldset{
@@ -312,22 +312,22 @@ color: #023159;
 }
 
 .blueGradient{
-        background-image: -webkit-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
-        background-image: -moz-linear-gradient(top, #024d86,#023159, #023159 51%, #023159)!important;
-        background-image: -o-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
-        background-image: -ms-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important; 
+        background-image: -webkit-linear-gradient(top, #493F76, #201747 , #201747 , #201747)!important;
+        background-image: -moz-linear-gradient(top, #544A83, #493F76, #201747 , #201747)!important;
+        background-image: -o-linear-gradient(top, #544A83, #493F76, #201747 , #201747)!important;
+        background-image: -ms-linear-gradient(top, #544A83, #493F76, #201747 , #201747)!important;
  }
 
  
 .blueGradientBottom{
-        background-image: -webkit-linear-gradient(top,#023159 , #023159, #023159 51%, #024d86)!important;
-        background-image: -moz-linear-gradient(top, #024d86,#023159, #023159 51%, #023159)!important;
-        background-image: -o-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important;
-        background-image: -ms-linear-gradient(top, #024d86, #023159, #023159 51%, #023159)!important; 
+        background-image: -webkit-linear-gradient(top,#201747 , #201747 , #201747, #493F76)!important;
+        background-image: -moz-linear-gradient(top,#201747 , #201747, #493F76, #544A83)!important;
+        background-image: -o-linear-gradient(top,#201747 , #201747, #493F76, #544A83)!important;
+        background-image: -ms-linear-gradient(top,#201747 , #201747, #493F76, #544A83)!important;
  }
 
 .menu-button{
-    background-color: #023159;
+    background-color: #201747;
     background-image:none;
   //  border: 1px solid white;
     border-width: 0px 1px 1px 1px;

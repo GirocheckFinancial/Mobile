@@ -39,16 +39,13 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
                     fieldId: 'profileUsername',
                     name: 'username',
 					readOnly: true,
-                    hint: 'Enter your Username',
-                    minLength: 6,
-                    regExp: /^[a-zA-Z0-9]*$/,
-                    regExtErrorMsg: 'Username must to contain letters and numbers and have at least 6 characters.'
+                    hint: 'This is your Username' 
                 }, {
                     xtype: 'baseTextField',
                     fieldId: 'profilePhone',
                     placeHolder: 'Telephone',
                     name:'phone',
-                    hint: 'Enter telephone number used when registering <br> VoltCash, include country code <br> (1 if in USA) with no dashes.',
+                    hint: 'Enter telephone number',
                     minLength: 10,
                     regExp: /^[0-9]*$/,
                     regExtErrorMsg: 'Enter just digits' 
