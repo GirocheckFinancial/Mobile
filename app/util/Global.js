@@ -7,10 +7,7 @@ Ext.define('GirocheckMobile.utils.Global', {
     alternateClassName: 'Global',
     singleton: true,
     alias: 'widget.global',
-    config: {
-      //  host:'http://localhost:8085',
-      //  host:'http://69.42.101.181:8085',
-       //   host:'https://mobile.girocheck.net:8999',
+    config: { 
         middleUrl: '/FrontMobile/',
         version: 'v1',
         startDate: null,
@@ -21,13 +18,14 @@ Ext.define('GirocheckMobile.utils.Global', {
         phone: null,
         email: null,
         balance:null,
-        clientName:null
+        clientName:null,
+        lang:null
     },
     constructor: function (config) {
         this.initConfig(config);
     },
     getHost:function(){
-      var h = 3;
+      var h = 1;
       switch(h){
           case 1:return 'http://localhost:8085';
           case 2:return 'http://69.42.101.181:8085';

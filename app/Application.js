@@ -9,6 +9,7 @@ Ext.define('GirocheckMobile.Application', {
     name: 'VoltCash',
 
     requires: [
+        'GirocheckMobile.i18n.I18N',
         'GirocheckMobile.utils.Request',
         'GirocheckMobile.utils.UUIDGenerator',
         'GirocheckMobile.util.Utils',
@@ -20,17 +21,8 @@ Ext.define('GirocheckMobile.Application', {
         // TODO: add global / shared stores here 
     ],
 
-    launch: function () { 
-        //    Request.load({
-        //     url: 'http://demo8105304.mockable.io/girocheckUrl',
-        //     method: 'GET', 
-        //     success: function (response) {  
-        //         Global.setHost(response.responseText);  
-        //         Ext.toast('Connecting to:' + Global.getHost(), 4000); 
-        //     }
-        // }); 
-    },
-
+    launch: function () {  
+    }, 
     onAppUpdate: function () {
         Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
             function (choice) {

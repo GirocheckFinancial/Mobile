@@ -2,15 +2,15 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
     extend: 'Ext.dataview.List',
     alias: 'widget.txList',
     xtype: 'txList',
-    id:'txList',
+    id: 'txList',
     requires: [
         'Ext.plugin.ListPaging',
         'GirocheckMobile.store.TxStore',
         'Ext.plugin.PullRefresh'
     ],
     config: {
-        loadingText: 'Performing search...<br>This may take up to 1 minute.',
-        emptyText: 'No results found.', 
+        loadingText:i18n.txlist.loadingText,
+        emptyText: i18n.txlist.emptyText,
         flex: 1,
         height: '100%',
         // infinite: true,
@@ -35,12 +35,12 @@ Ext.define('GirocheckMobile.view.main.pages.TxList', {
             {
                 xclass: 'Ext.plugin.ListPaging',
                 autoPaging: true,
-                noMoreRecordsText: 'No more records' 
+                noMoreRecordsText: i18n.txlist.noMoreRecordsText
             },
             {
                 xclass: 'Ext.plugin.PullRefresh',
-                pullText: 'Pull down to refresh'
+                pullText: i18n.txlist.pullText
             }
-        ] 
+        ]
     }
 });

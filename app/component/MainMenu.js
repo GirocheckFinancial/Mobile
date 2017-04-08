@@ -13,13 +13,13 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             {
                 itemId: 'menuName',
                 xtype: 'button',
-                text: 'Roberto Rodriguez',
+                text: '',
                 iconCls: 'user',
                 cls: ['menu-button-header', 'menu-button-top']
             },
             {
                 xtype: 'button',
-                text: 'Profile',
+                text: i18n.profile.title,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 cls: ['menu-button'],
@@ -30,7 +30,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'button',
-                text: 'Replace Card',
+                text: i18n.replaceCard.title,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 page: 'GirocheckMobile.view.main.pages.ReplaceCard',
@@ -41,7 +41,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'button',
-                text: 'Logout',
+                text:i18n.mainMenu.logout,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 cls: ['menu-button-bottom', 'menu-button-down'],
@@ -55,7 +55,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'button',
-                text: 'Contact',
+                text:i18n.contact.title,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 page: 'GirocheckMobile.view.main.pages.Contact',
@@ -66,7 +66,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'button',
-                text: 'Legal',
+                text:i18n.mainMenu.legal,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 page:'GirocheckMobile.view.auth.TermsAndConditions',
@@ -77,7 +77,7 @@ Ext.define('GirocheckMobile.component.MainMenu', {
             },
             {
                 xtype: 'button',
-                text: 'FAQ',
+                text: i18n.faq.title,
                 iconCls: 'fa fa-angle-right',
                 iconAlign: 'right',
                 page: 'GirocheckMobile.view.main.pages.FAQ',

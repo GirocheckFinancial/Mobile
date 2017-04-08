@@ -73,7 +73,7 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
                             ]
                         },
                         {
-                            html: 'Available Balance',
+                            html: i18n.home.availableBalance,
                             style: {
                                 'margin-top': '10px',
                                 'font-size': '15px'
@@ -88,11 +88,10 @@ Ext.define('GirocheckMobile.view.main.pages.Home', {
             ]
         },
         {
-            html: 'COMPLETED TRANSACTIONS',
+            html: i18n.home.completedTransactions,
             style: {
                 margin: '15px 15px 0px 15px',
-                color: 'grey',
-             //   'border-bottom': '1px solid #f0f0f0',
+                color: 'grey', 
                 'font-size': '15px',
                 'padding-bottom': '7px'
             }

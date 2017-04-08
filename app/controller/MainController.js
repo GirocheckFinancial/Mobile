@@ -32,7 +32,7 @@ Ext.define('GirocheckMobile.controller.MainController', {
             jsonData: obj,
             success: function (response) {
                 Ext.getCmp('mainNavView').pop();
-                Ext.toast('Your Card has beed replaced', 4000);
+                Ext.toast(i18n.replaceCard.yourCardHasBeenReplaced, 4000);
             }
         });
     },
@@ -56,7 +56,7 @@ Ext.define('GirocheckMobile.controller.MainController', {
             jsonData: obj,
             success: function (response) {
                 Ext.getCmp('mainNavView').pop();
-                Ext.toast('Your profile has been updated', 4000); 
+                Ext.toast(i18n.profile.yourProfileHasBeenReplaced, 4000); 
             }
         });
         

@@ -9,6 +9,7 @@ Ext.define('GirocheckMobile.view.auth.AuthTabPanel', {
     ],
     controller: 'authController',
     config: {
+        defaultBackButtonText: i18n.navigationView.back,
         fullscreen: true,
         title: {
             title: 'mytitle',

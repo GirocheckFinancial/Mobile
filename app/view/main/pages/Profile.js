@@ -10,7 +10,7 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
     xtype: 'profile',
     id: 'profile',
     config: {
-        title: 'Profile',
+        title: i18n.profile.title,
         doFocus: false
     },
     scrollable: true,
@@ -26,7 +26,7 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
     },
     items: [
         {
-            title: 'Personal Information',
+            title: i18n.profile.personalInformation,
             margin: '5 0 0 0',
             defaults: {
                 xtype: 'textfield',
@@ -35,36 +35,36 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
             items: [
                 {
                     xtype: 'baseTextField',
-                    placeHolder: 'Username',
+                    placeHolder: i18n.profile.username,
                     fieldId: 'profileUsername',
                     name: 'username',
 					readOnly: true,
-                    hint: 'This is your Username' 
+                    hint:i18n.profile.usernameHint
                 }, {
                     xtype: 'baseTextField',
                     fieldId: 'profilePhone',
-                    placeHolder: 'Telephone',
+                    placeHolder:i18n.profile.telephone,
                     name:'phone',
-                    hint: 'Enter telephone number',
+                    hint: i18n.profile.telephoneHint,
                     minLength: 10,
                     regExp: /^[0-9]*$/,
-                    regExtErrorMsg: 'Enter just digits' 
+                    regExtErrorMsg: i18n.profile.emailRegexHint
                 },
                 {
                     xtype: 'baseTextField',
                     fieldId: 'profileEmail',
                     name:'email',
-                    placeHolder: 'Email',
-                    hint: 'Enter your e-mail address. <br> This will be used for password recovery',
+                    placeHolder:i18n.profile.email,
+                    hint: i18n.profile.emailHint,
                     regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    regExtErrorMsg: 'Invalid email format' 
+                    regExtErrorMsg: i18n.profile.emailRegexHint
                 }]
         },
 
         {
             id: 'changePasswordFieldset',
             items: [{
-                html: 'Change Password',
+                html: i18n.profile.changePassword,
                 width: '100%',
                 style: {
                     'color': 'gray',
@@ -86,8 +86,8 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
                 {
                     xtype: 'passwordField',
                     fieldId: 'oldPassword',
-                    placeHolder: 'Previous Password', 
-                    hint: 'Please enter your previous Password.' 
+                    placeHolder:i18n.profile.previousPassword, 
+                    hint: i18n.profile.previousPasswordHint 
                 },
                 {
                     xtype: 'passwordField',
@@ -97,7 +97,7 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
                 {
                     xtype: 'passwordField',
                     fieldId: 'rePassword',
-                    placeHolder: 'Retype Password',
+                    placeHolder:i18n.profile.retypePassword,
                     equalToField: 'passwordField' 
                 }]
         },
@@ -107,7 +107,7 @@ Ext.define('GirocheckMobile.view.main.pages.Profile', {
         }, {
             margin: '0 0 10 0',
             xtype: 'basebutton',
-            text: 'Accept',
+            text: i18n.profile.accept,
             iconCls: 'pictos pictos-check2',
             listeners: {
                 tap: 'doUpdateProfile'

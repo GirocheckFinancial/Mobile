@@ -2,10 +2,8 @@ Ext.define('GirocheckMobile.component.BaseButton', {
     extend: 'Ext.Button',
     xtype: 'basebutton',
     config: { 
-         cls: 'mobileapp-button', 
-        // iconMask: true,
-        iconAlign: 'center',
-        // iconCls: 'pictos pictos-check2', // 'stats-bars',
+         cls: 'mobileapp-button',  
+        iconAlign: 'center', 
         height: 52,
         listeners: {
             tap: function(me, event, eOpts) {

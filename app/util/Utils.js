@@ -7,7 +7,7 @@
 Ext.define('GirocheckMobile.util.Utils', {
     alternateClassName: 'Util',
     statics: {
-        afterLogin: function (response) { 
+        afterLogin: function (response) {
             if (response) {
                 Global.setLoginInfo(response);
             }
@@ -64,7 +64,7 @@ Ext.define('GirocheckMobile.util.Utils', {
                 Util.initializeDateRange();
             }
 
-            return 'From ' + this.formatDate(Global.getStartDate()) + ' to ' + this.formatDate(Global.getEndDate());
+            return i18n.utils.from + this.formatDate(Global.getStartDate()) + i18n.utils.to + this.formatDate(Global.getEndDate());
         }
     }
 });

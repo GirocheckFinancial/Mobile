@@ -11,7 +11,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
         'GirocheckMobile.field.CardField'
     ],
     config: {
-        title: 'Register',
+        title: i18n.register.title,
         cls: 'login',
         id: 'register',
         doFocus: false,
@@ -28,17 +28,17 @@ Ext.define('GirocheckMobile.view.auth.Register', {
         },
         items: [
             {
-                title: 'Credentials',
+                title: i18n.register.credentials,
                 items: [
                     {
                         xtype: 'baseTextField',
-                        placeHolder: 'Username',
+                        placeHolder: i18n.register.username,
                         fieldId: 'user',
                         name: 'username',
-                        hint: 'Enter your Username',
+                        hint: i18n.register.usernameHint,
                         minLength: 6,
                         regExp: /^[a-zA-Z0-9]*$/,
-                        regExtErrorMsg: 'Username must to contain letters and numbers and have at least 6 characters.'
+                        regExtErrorMsg: i18n.register.usernameRegexHint
                     },
                     {
                         xtype: 'passwordField',
@@ -47,42 +47,42 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                     {
                         xtype: 'passwordField',
                         fieldId: 'rePassword',
-                        placeHolder: 'Retype Password',
+                        placeHolder: i18n.register.retypePassword,
                         equalToField: 'password' 
                     }]
             },
             {
-                title: 'Personal Information',
+                title: i18n.register.personalInformation,
                 items: [
                     {
                         xtype: 'baseTextField',
                         fieldId: 'phone',
-                        placeHolder: 'Telephone',
-                        hint: 'Enter telephone number used when registering <br> VoltCash, with no dashes.',
+                        placeHolder:i18n.register.telephone,
+                        hint:i18n.register.telephoneHint,
                         minLength: 10,
                         regExp: /^[0-9]*$/,
-                        regExtErrorMsg: 'Enter just digits' 
+                        regExtErrorMsg:i18n.register.telephoneRegexHint
                     },
                     {
                         xtype: 'baseTextField',
                         fieldId: 'email',
-                        placeHolder: 'Email',
-                        hint: 'Enter your e-mail address. <br> This will be used for password recovery',
+                        placeHolder: i18n.register.email,
+                        hint: i18n.register.emailHint,
                         regExp: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        regExtErrorMsg: 'Invalid email format' 
+                        regExtErrorMsg:i18n.register.emailRegexHint 
                     },
                     {
                         xtype: 'baseTextField',
                         fieldId: 'ssn',
-                        placeHolder: 'SSN / ITIN',
-                        hint: 'Enter your Social Security Number or ITIN <br> used when registering VoltCash.',
+                        placeHolder:i18n.register.ssn ,
+                        hint: i18n.register.ssnHint,
                         regExp: /^[0-9]*$/,
                         inputType: 'password',
-                        regExtErrorMsg: 'Enter just digits' 
+                        regExtErrorMsg: i18n.register.ssnRegexHint 
                     }]
             },
             {
-                title: 'Credit Card',
+                title: i18n.register.creditCard,
                 items: [{
                     xtype: 'cardField',
                     fieldId: 'card',
@@ -114,7 +114,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                         xtype: 'checkBoxField',
                         id: 'acceptTerms',
                         labelAlign: 'right',
-                        label: 'I accept the',
+                        label: i18n.register.iAcceptThe,
                         listeners: {
                             change: 'onAcceptTerms'
                         }
@@ -122,7 +122,7 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                     {
                         xtype: 'panel',
                         id: 'readTerms',
-                        html: '<span id="readTermsLink">Terms and Conditions</span>',
+                        html: '<span id="readTermsLink">' + i18n.register.termsAndConditions + '</span>',
                         align: 'left',
                         style: { 'text-decoration': 'underline', 'padding-top': '6px' }
                     }
@@ -139,9 +139,8 @@ Ext.define('GirocheckMobile.view.auth.Register', {
                 margin: '0 0 10 0',
                 xtype: 'basebutton',
                 cls: 'mobileapp-button-disabled',
-                text: 'Register',
-                iconCls: 'pictos pictos-check2',
-                qtip: "This is a tip",
+                text: i18n.register.register,
+                iconCls: 'pictos pictos-check2', 
                 listeners: {
                     tap: 'doRegister' 
                 }

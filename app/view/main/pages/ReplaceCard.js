@@ -1,16 +1,10 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "mainView" property. That setting causes an instance of this class to be created and
- * added to the Viewport container.
- *
- * TODO - Replace the content of this view to suit the needs of your application.
- */
+ 
 Ext.define('GirocheckMobile.view.main.pages.ReplaceCard', {
     extend: 'GirocheckMobile.component.BaseViewPage',
     xtype: 'replaceCard',
     id: 'replaceCard',
     config: {
-        title: 'Replace Card',
+        title: i18n.replaceCard.title,
         doFocus: false
     },
     scrollable: true,
@@ -29,7 +23,7 @@ Ext.define('GirocheckMobile.view.main.pages.ReplaceCard', {
                     xtype: 'cardField',
                     fieldId: 'newCard',
                     name: 'card',
-                    placeHolder: 'New Card Number'
+                    placeHolder: i18n.replaceCard.newCardNumber
                 }
             ]
         },
@@ -40,7 +34,7 @@ Ext.define('GirocheckMobile.view.main.pages.ReplaceCard', {
             id: 'replaceCardAcceptButton',
             margin: '0 0 10 0',
             xtype: 'basebutton',
-            text: 'Accept',
+            text: i18n.replaceCard.accept,
             iconCls: 'pictos pictos-check2',
             listeners: {
                 tap: 'doReplaceCard'

@@ -19,10 +19,8 @@ Ext.define('GirocheckMobile.controller.AuthController', {
 
         if (!userName || !password) return;
 
-        //http://69.42.101.181:8095/FrontMobile/webresources/v1/
         Request.load({
             url: 'auth/login',
-            //params:'username=' + userName + '&password='+ password,
             method: 'POST',
             jsonData: { 'username': userName, 'password': password },
             success: Util.afterLogin
@@ -33,20 +31,18 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         var me = this,
             view = me.getView();
         view.push(Ext.create('GirocheckMobile.view.auth.Register'));
-        //TODO move this to a method in the navigation bar
-        // view.toggleToolBar(true);
-        // view.getNavigationBar().setStyle({ display: 'block' });
     },
 
     doRegister: function (registerButton) {
-        var view = registerButton.up(),
+        var me = this,
+            view = registerButton.up(),
             acceptTerms = view.down('#acceptTerms');
 
         if (!acceptTerms.getValue()) {
             Ext.create('Ext.tip.ToolTip', {
-                target: me.el,
+                target: acceptTerms.el,
                 anchor: 'bottom',
-                html: 'You need to accept our Terms and Conditions'
+                html: i18n.termsAndConditions.youNeedToAccept
             }).show();
             return;
         }
@@ -83,14 +79,14 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         if (isResetPassword) {
             this.doResetPassword(view);
             return;
-        } 
+        }
 
         if (firstTime) {
             if (!fpCard.up('baseTextField').validate() || !maskSSN.up('baseTextField').validate()) return;
         } else {
             var codeVal = codeField.getValue();
             if (!codeVal || !/^[0-9]{6}$/.test(codeVal)) {
-                Ext.toast('Invalid Access Code', 3000);
+                Ext.toast(i18n.forgotPassword.invalidAccessCode, 3000);
                 return;
             }
         }
@@ -104,15 +100,15 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             success: firstTime ? this.fpFirstTimeCallBack : this.fpSecondTimeCallBack
         });
     },
-    doResetPassword: function (view) { 
+    doResetPassword: function (view) {
         var fpPassword = view.down('#fpPassword'),
             fpRePassword = view.down('#fpRePassword');
 
         if (!fpPassword.up('baseTextField').validate() || !fpRePassword.up('baseTextField').validate()) return;
 
         var obj = {
-            clientId:Global.getClientId(),
-            newPassword:fpPassword.getValue()
+            clientId: Global.getClientId(),
+            newPassword: fpPassword.getValue()
         }
 
         Request.load({
@@ -122,13 +118,13 @@ Ext.define('GirocheckMobile.controller.AuthController', {
             success: Util.afterLogin
         });
     },
-    fpFirstTimeCallBack: function (response) { 
+    fpFirstTimeCallBack: function (response) {
         for (var i = 0; i < 5; i++) {
             Ext.getCmp('forgotPassword').items.items[i].el.toggle();
         }
         Ext.getCmp('fpAcceptButton').setText('Accept');
     },
-    fpSecondTimeCallBack: function (response) { 
+    fpSecondTimeCallBack: function (response) {
         for (var i = 0; i < 5; i++) {
             Ext.getCmp('forgotPassword').items.items[i].el.hide();
         }
@@ -136,8 +132,8 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         Global.setLoginInfo(response);
 
         var forgotPasswordView = Ext.getCmp('forgotPassword');
-        if(forgotPasswordView.setTitle){
-            forgotPasswordView.setTitle('Reset Password');
+        if (forgotPasswordView.setTitle) {
+            forgotPasswordView.setTitle(i18n.forgotPassword.resetPassword);
         }
     },
     onAcceptTerms: function (me, newValue, oldValue, eOpts) {

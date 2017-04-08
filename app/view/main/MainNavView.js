@@ -27,6 +27,7 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
         });
     },
     config: {
+        defaultBackButtonText: i18n.navigationView.back,
         fullscreen: true,
         items: [
             { xtype: 'home' }
@@ -62,16 +63,14 @@ Ext.define('GirocheckMobile.view.main.MainNavView', {
                     cls: 'bar-bottom',
                     iconCls: 'pictos pictos-search',
                     align: 'right',
-                    style: {
-                      //  'background-color': '#023159',
+                    style: { 
                         'margin-right': '10px'
                     }
                 },
                 {
                     xtype: 'button',
                     id: 'more-options',
-                    cls: 'bar-button-more',
-                  //  iconCls: 'fa fa-ellipsis-v',
+                    cls: 'bar-button-more', 
                     align: 'right',
                     width: '30px',
                     style: {

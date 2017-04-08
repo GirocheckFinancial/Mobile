@@ -83,12 +83,12 @@ Ext.define('GirocheckMobile.field.BaseTextField', {
         }
 
         if (config.required && !val) {
-            me.showTip('Required Field');
+            me.showTip( i18n.field.requiredField);
             return false;
         }
 
         if (config.minLength && val.length < config.minLength) {
-            me.showTip('Enter at least ' + config.minLength + ' characters');
+            me.showTip(i18n.field.enterAtLeast + config.minLength + i18n.field.characters);
             return false;
         }
 

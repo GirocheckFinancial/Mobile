@@ -6,7 +6,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
         'GirocheckMobile.field.CardField'
     ],
     config: {
-        title: 'Forgot Password',
+        title: i18n.forgotPassword.title,
         padding: '10px 10px 0 10px',
         cls: 'login',
         id: 'forgotPassword',
@@ -18,10 +18,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
         items: [
             {
                 width: '100%',
-                html: '<div style="text-align:center"><br><h3>We are here to help you<h3><br>' +
-                '<span>Please enter the following information, so we can identify your account,' +
-                ' and send you an Access Code by Email or SMS that you can use to login' +
-                ' and reset your password.</span></div>'
+                html: '<div style="text-align:center"><br>' + i18n.forgotPassword.header + '</div>'
             },
             {
                 xtype: 'fieldset',
@@ -40,16 +37,16 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                     {
                         xtype: 'baseTextField',
                         fieldId: 'maskSSN',
-                        placeHolder: 'Las 4 digits of the SSN or ITIN',
-                        hint: 'Enter the last 4 digits of the <br> Social Security Number or ITIN <br> used when registering VoltCash.',
+                        placeHolder: i18n.forgotPassword.ssn,
+                        hint:i18n.forgotPassword.ssnHint,
                         regExp: /^[0-9]{4}$/,
-                        regExtErrorMsg: 'Enter 4 digits' 
+                        regExtErrorMsg: i18n.forgotPassword.ssnRegexHint, 
                     }]
             },
             {
                 xtype: 'fieldset',
                 margin: '5 0 0 0',
-                title: 'Receive Access Code by:',
+                title: i18n.forgotPassword.reciveBy,
                 width: '100%',
                 layout: 'hbox',
                 defaults: {
@@ -59,13 +56,13 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 },
                 items: [{
                     name: 'sendBy',
-                    label: 'Email',
+                    label: i18n.forgotPassword.email,
                     value: 'email',
                     id: 'sendByEmail',
                     checked: true
                 }, {
                     name: 'sendBy',
-                    label: 'SMS Text',
+                    label: i18n.forgotPassword.sms,
                     id: 'sendBySms',
                     value: 'sms'
                 }]
@@ -73,8 +70,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
             {
                 width: '100%',
                 hidden: true,
-                html: '<div style="text-align:center"><br><h3>We just sent you a 6 digits Access Code.' +
-                ' You can access with that code for the next 30 minutes.</span></div>'
+                html: '<div style="text-align:center"><br><h3>' + i18n.forgotPassword.weJustSent + '</span></div>'
             },
             {
                 xtype: 'fieldset',
@@ -85,7 +81,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 items: [{
                     id: 'code',
                     name: 'code',
-                    placeHolder: 'Security Code',
+                    placeHolder: i18n.forgotPassword.securityCode,
                     xtype: 'textfield',
                     margin: '2',
                     width: '100%'
@@ -94,7 +90,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
              {
                 xtype: 'fieldset',
                 id:'resetPasswordFieldset',
-                title:"Reset Password",
+                title: i18n.forgotPassword.resetPassword,
                 hidden: true,
                 margin: '5 0 0 0', 
                 defaults: {
@@ -110,7 +106,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                     {
                         xtype: 'passwordField',
                         fieldId: 'fpRePassword',
-                        placeHolder: 'Retype Password',
+                        placeHolder: i18n.forgotPassword.retypePassword,
                         equalToField: 'fpPassword' 
                     }]
             },
@@ -127,7 +123,7 @@ Ext.define('GirocheckMobile.view.auth.ForgotPassword', {
                 id: 'fpAcceptButton',
                 margin: '20 0 10 0',
                 xtype: 'basebutton',
-                text: 'Send me Access Code',
+                text: i18n.forgotPassword.sendmeAccessCode,
                 iconCls: 'pictos pictos-check2',
                 listeners: {
                     tap: 'doForgotPassword'

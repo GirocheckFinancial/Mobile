@@ -30,7 +30,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
             {
                 height: 50,
                 hidden: true,
-                html: 'Invalid Credentials',
+                html:i18n.login.invalidCredentials,
                 style: { color: 'red', width: '100%', 'text-align': 'center' }
             },
             {
@@ -51,14 +51,16 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             items: [{
                                 id: 'loginUser',
                                 name: 'user',
-                                placeHolder: 'Username' 
+                                placeHolder: i18n.login.username,
+                                value:'aaaaaa'
                             }]
                         }, {
                             items: [{
                                 inputType: 'password',
                                 id: 'loginPassword',
                                 name: 'password',
-                                placeHolder: 'Password'  
+                                placeHolder: i18n.login.password,
+                                value:'Aaaaaaa1'
                             }]
                         }, {
                             xtype: 'panel',
@@ -77,7 +79,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                                     xtype: 'link',
                                     id: 'forgotPasswordLink',
                                     url: 'http://google.com',
-                                    html: 'Forgot Password',
+                                    html: i18n.login.forgotPassword,
                                     margin:'10 0 0 10',
                                     listeners: {
                                         tap: 'onForgotPassword'
@@ -103,7 +105,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             items: [{
                                 itemId: 'loginButton',
                                 xtype: 'basebutton',
-                                text: 'Login',
+                                text: i18n.login.login,
                                 iconCls: 'fa fa-sign-in',
                                 listeners: {
                                     tap: 'doLogin'
@@ -112,7 +114,7 @@ Ext.define('GirocheckMobile.view.auth.Login', {
                             {
                                 xtype: 'basebutton',
                                 cls: 'registerButton',
-                                text: 'Register',
+                                text:i18n.login.register,
                                 iconCls: 'pictos pictos-lightning',
                                 style: {
                                     'background-color': '#000000'
