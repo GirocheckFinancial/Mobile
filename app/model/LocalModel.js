@@ -7,8 +7,7 @@ Ext.define('GirocheckMobile.model.LocalModel', {
         identifier: 'uuid',
         fields: [
             {name: 'id', type: 'int'},
-            { name: 'deviceId', type: 'string', defaultValue:'hey default' },
-          //  { name: 'usePin', type: 'string', defaultValue: false }
+            { name: 'deviceId', type: 'string', defaultValue:'hey default' } 
         ]
     }
 });

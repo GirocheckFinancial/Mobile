@@ -22,6 +22,9 @@ Ext.define('GirocheckMobile.util.Utils', {
 
                     var cents = arrayBalance[1].length == 1 ? arrayBalance[1] + '0' : arrayBalance[1];
                     Ext.getCmp('balanceCents').setHtml(cents);
+                }else{
+                    Ext.getCmp('balanceAmount').setHtml(balance);
+                    Ext.getCmp('balanceCents').setHtml('00');
                 }
             }
             Ext.getCmp('main').setActiveItem(Ext.getCmp('mainNavView'));

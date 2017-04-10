@@ -8,7 +8,7 @@ Ext.define('GirocheckMobile.utils.Request', {
     alternateClassName: 'Request',
     singleton: true,
     autoAbort: false,
-  //  disableCaching:true,
+    //  disableCaching:true,
     constructor: function (config) {
         var me = this;
         me.callParent(arguments);
@@ -20,11 +20,12 @@ Ext.define('GirocheckMobile.utils.Request', {
         requestexception: "onRequestexception"
     },
     load: function (config) {
-        var me = this; 
+        var me = this;
         var obj = {
             headers: {
-                'TOKEN': Global.getToken()
-            }, 
+                'TOKEN': Global.getToken(),
+                'LANG': Global.getLang()
+            },
             method: config.method || 'GET',//'POST',
             url: Global.getUrlPrefix() + config.url,
             params: config.params,
@@ -42,13 +43,13 @@ Ext.define('GirocheckMobile.utils.Request', {
             obj['headers']['Content-Type'] = 'application/x-www-form-urlencoded';
         } else {
             obj['headers']['Content-Type'] = 'application/json; charset=utf-8';
-        } 
-        
+        }
+
 
         me.request(obj);
     },
 
-    onBeforerequest: function (conn, options, eOpts) { 
+    onBeforerequest: function (conn, options, eOpts) {
         Loading.start({ showloading: 1 });
         if (options.url.indexOf('http') !== 0) {
             options.url = WS.HOST + WS.VERSION + '/' + options.url;
@@ -59,7 +60,7 @@ Ext.define('GirocheckMobile.utils.Request', {
         }
     },
     onRequestcomplete: function (conn, response, options, eOpts) {
-        Loading.stop(); 
+        Loading.stop();
         var responseAsJson = Ext.decode(response.responseText);
 
         if (responseAsJson.status == 100) {

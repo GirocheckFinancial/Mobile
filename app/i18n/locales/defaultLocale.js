@@ -43,7 +43,7 @@ Ext.define('GirocheckMobile.i18n.locales.defaultLocale', {
     '<span>Por favor entre la siguiente información, para poder identificar su cuenta,' +
     ' y enviarle el Código de Acceso por Correo Electrónico o mensaje SMS, que podrá ser usado para loguearse' +
     ' y resetear su contraseña.</span>',
-    ssn: 'Ultimos 4 dígitos de su número SSN o ITIN',
+    ssn: 'Ultimos 4 dígitos de su SSN o ITIN',
     ssnHint: 'Entre los últimos 4 dígitos de <br> su número de Seguro Social o ITIN <br> usados al registrar VoltCash.',
     ssnRegexHint: 'Entre 4 digitos',
     reciveBy: 'Recibir Código de Acceso por:',
@@ -55,7 +55,8 @@ Ext.define('GirocheckMobile.i18n.locales.defaultLocale', {
     resetPassword: "Resetear Contraseña",
     retypePassword: 'Repetir Contraseña',
     sendmeAccessCode: 'Recibir Código de Acceso',
-    invalidAccessCode: ' Código de Acceso no válido'
+    invalidAccessCode: ' Código de Acceso no válido',
+    accept:'Aceptar'
   },
   home: {
     availableBalance: 'Balance Disponible',

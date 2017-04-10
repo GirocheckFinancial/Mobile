@@ -44,6 +44,7 @@ Ext.define('GirocheckMobile.store.TxStore', {
           
         var headers = proxy.getHeaders() || {};
         headers['TOKEN'] = Global.getToken();
+        headers['LANG'] = Global.getLang();
         proxy.setHeaders(headers);
 
         me.callParent(arguments);

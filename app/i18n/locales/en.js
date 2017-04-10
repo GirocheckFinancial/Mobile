@@ -56,7 +56,8 @@ Ext.define('GirocheckMobile.i18n.locales.en', {
         resetPassword: "Reset Password",
         retypePassword: 'Retype Password',
         sendmeAccessCode: 'Send me Access Code',
-        invalidAccessCode: 'Invalid Access Code'
+        invalidAccessCode: 'Invalid Access Code',
+        accept: 'Accept'
     },
     home: {
         availableBalance: 'Available Balance',
@@ -101,7 +102,7 @@ Ext.define('GirocheckMobile.i18n.locales.en', {
         emptyText: 'No results found.',
         noMoreRecordsText: 'No more records',
         pullText: 'Pull down to refresh',
-        loadingText: 'Performing search...<br>This may take up to 1 minute.',
+        loadingText: 'Performing search...<br>This may take up to 1 minute.' 
     },
     navigationView: {
         back: 'Back'

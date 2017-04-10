@@ -122,7 +122,7 @@ Ext.define('GirocheckMobile.controller.AuthController', {
         for (var i = 0; i < 5; i++) {
             Ext.getCmp('forgotPassword').items.items[i].el.toggle();
         }
-        Ext.getCmp('fpAcceptButton').setText('Accept');
+        Ext.getCmp('fpAcceptButton').setText(i18n.forgotPassword.accept);
     },
     fpSecondTimeCallBack: function (response) {
         for (var i = 0; i < 5; i++) {
