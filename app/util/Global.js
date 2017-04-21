@@ -25,7 +25,7 @@ Ext.define('GirocheckMobile.utils.Global', {
         this.initConfig(config);
     },
     getHost:function(){
-      var h = 1;
+      var h = 2;
       switch(h){
           case 1:return 'http://localhost:8085';
           case 2:return 'http://69.42.101.181:8085';
